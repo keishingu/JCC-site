@@ -1,13 +1,15 @@
 import Link from 'next/link'
+import { newsItems } from '@/lib/data/news'
 
-const items = [
-  { tag: 'お知らせ', date: '2026.04.18', title: '2026年度JCC総会を実施しました',               href: null,                    img: false },
-  { tag: 'お知らせ', date: '2025.05.20', title: '「ポーラーサーカス登攀記」を公開しました',     href: '/chronicle/polar-circus' },
-  { tag: '会報',     date: '2025.04.15', title: '会報 No.312（2025年 春号）を掲載しました',     href: '/journal' },
-  { tag: '会報',     date: '2025.04.02', title: 'バックナンバー No.250 - No.290 をアーカイブ公開', href: '/journal' },
-  { tag: '募集',     date: '2025.01.01', title: '2025年度 新入会員の募集について',              href: '/climbers' },
-  { tag: 'お知らせ', date: '2024.12.10', title: '創立67周年記念講演会のご案内',                  href: null },
-]
+const announcementTags = ['お知らせ', '会報', '募集'] as const
+const items = newsItems
+  .filter((n) => (announcementTags as readonly string[]).includes(n.tag))
+  .map((n) => ({
+    tag: n.tag,
+    date: n.date,
+    title: n.title,
+    href: n.href ?? null,
+  }))
 
 const enSt: React.CSSProperties = { fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }
 const jpSt: React.CSSProperties = { fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }

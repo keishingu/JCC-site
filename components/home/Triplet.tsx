@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import ArrowLink from '../layout/ArrowLink'
 import { photos } from '@/lib/photos'
+import { journalIssues } from '@/lib/data/journal'
+import { newsItems } from '@/lib/data/news'
 
 function JournalCover({ no, cover }: { no: string; cover: string }) {
   return (
@@ -22,20 +24,18 @@ function JournalCover({ no, cover }: { no: string; cover: string }) {
   )
 }
 
-const journals = [
-  { no: 'No.312', date: '2025年 春号', cover: photos.frostPinnacle },
-  { no: 'No.311', date: '2024年 冬号', cover: photos.snowRidge },
-  { no: 'No.310', date: '2024年 秋号', cover: photos.iceMassive },
-  { no: 'No.309', date: '2024年 夏号', cover: photos.bugaboos },
-]
+const journals = journalIssues.slice(0, 4).map((j) => ({
+  no: `No.${j.no}`,
+  date: `${j.date.replace(' ', '年 ')}`,
+  cover: j.cover ?? '',
+}))
 
-const newsItems = [
-  { tag: 'お知らせ', date: '2025.05.20', title: '「ポーラーサーカス登攀記」を公開',            href: '/chronicle/polar-circus' },
-  { tag: 'FIELD',   date: '2025.05.18', title: '谷川岳 一ノ倉沢の氷結状況 (5月中旬)',         href: '/news' },
-  { tag: 'TECH.',   date: '2025.05.15', title: 'アックスワークの基本 — スイングと体重移動',     href: '/news' },
-  { tag: '会報',    date: '2025.04.15', title: '会報 No.312（2025年 春号）を掲載しました',      href: '/journal' },
-  { tag: 'GEAR',    date: '2025.05.07', title: '春山で活躍したギアたち 2025',                   href: '/news' },
-]
+const homeNewsItems = newsItems.slice(0, 5).map((n) => ({
+  tag: n.tag,
+  date: n.date,
+  title: n.title,
+  href: n.href ?? '/news',
+}))
 
 export default function HomeTriplet() {
   return (
@@ -73,7 +73,7 @@ export default function HomeTriplet() {
           <span style={{ fontSize: 13, color: '#3d5070' }}>お知らせ・Field Notes</span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          {newsItems.map((n, i) => (
+          {homeNewsItems.map((n, i) => (
             <Link key={i} href={n.href} style={{
               display: 'grid', gridTemplateColumns: '76px 56px 1fr', alignItems: 'center', gap: 10,
               padding: '12px 2px', borderBottom: i === 4 ? 'none' : '1px solid rgba(10,22,40,0.08)',
