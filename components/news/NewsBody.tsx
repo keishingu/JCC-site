@@ -1,19 +1,21 @@
 import Link from 'next/link'
 import { photos } from '@/lib/photos'
+import { newsItems } from '@/lib/data/news'
 
 const enSt: React.CSSProperties = { fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }
 const jpSt: React.CSSProperties = { fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }
 
-const latestArticles = [
-  { tag: 'FIELD',     date: '2025.05.18', title: '谷川岳 一ノ倉沢の氷結状況 (5月中旬)',    author: 'Y. Tanigaki', img: photos.heroIce },
-  { tag: 'TECH.',     date: '2025.05.15', title: 'アックスワークの基本 — スイングと体重移動', author: 'K. Shingu',   img: photos.icefallWall },
-  { tag: 'GEAR',      date: '2025.05.07', title: '春山で活躍したギアたち 2025',              author: 'Y. Kunii',    img: photos.graniteClimber },
-  { tag: 'FIELD',     date: '2025.04.28', title: '冬季滝谷第四尾根レポート',                  author: 'K. Yamamoto', img: photos.snowRidge },
-  { tag: 'TECH.',     date: '2025.04.10', title: 'アイスクライミングにおける支点構築',        author: 'K. Shingu',   img: photos.iceSilhouette },
-  { tag: 'FIELD',     date: '2025.03.22', title: '剱岳 早月尾根 2025年3月',                  author: 'Y. Tanigaki', img: photos.frostPinnacle },
-  { tag: 'GEAR',      date: '2025.03.10', title: 'ビバーク装備の見直し：シュラフとビビーサック', author: 'Y. Kunii',  img: photos.cirqueDusk },
-  { tag: 'FIELD',     date: '2025.02.20', title: '厳冬期 谷川岳 一ノ倉沢 烏帽子沢奥壁',      author: 'Y. Tanigaki', img: photos.iceMassive },
-]
+const articleTags = ['FIELD', 'TECH.', 'GEAR', 'EXPEDITION'] as const
+const featured = newsItems.find((n) => n.featured)
+const latestArticles = newsItems
+  .filter((n) => (articleTags as readonly string[]).includes(n.tag) && !n.featured)
+  .map((n) => ({
+    tag: n.tag,
+    date: n.date,
+    title: n.title,
+    author: n.author ?? '',
+    img: n.img ?? photos.heroIce,
+  }))
 
 const categories = ['FIELD NOTES', 'TECH. / GEAR', 'EXPEDITION', 'ANNOUNCEMENT']
 const tags = ['アイス', '冬壁', '装備', 'アルパイン', '谷川岳', '剱岳', '海外', 'ギア']
@@ -36,11 +38,11 @@ export default function NewsBody() {
           <article style={{ background: '#fff', display: 'grid', gridTemplateColumns: '1.1fr 1fr', minHeight: 280, border: '1px solid rgba(10,22,40,0.08)' }}>
             <div style={{ position: 'relative', overflow: 'hidden', background: '#111' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={photos.iceMassive} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(.6) brightness(.92)' }}/>
+              <img src={featured?.img ?? photos.iceMassive} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(.6) brightness(.92)' }}/>
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(10,22,40,.55) 0%, rgba(10,22,40,0) 60%)' }}/>
               <div style={{ position: 'absolute', top: 20, left: 22, color: '#fff' }}>
                 <div style={{ fontSize: 10.5, letterSpacing: '.22em', opacity: .85, ...enSt }}>EXPEDITION</div>
-                <div style={{ marginTop: 4, fontSize: 13, letterSpacing: '.06em', opacity: .95, ...enSt }}>2025.05.20</div>
+                <div style={{ marginTop: 4, fontSize: 13, letterSpacing: '.06em', opacity: .95, ...enSt }}>{featured?.date ?? '2025.05.20'}</div>
               </div>
               <div style={{ position: 'absolute', left: 22, bottom: 24, color: '#fff', display: 'flex', flexDirection: 'column', gap: 14 }}>
                 {[['TEMP.', '−32°C'], ['WIND', '18m/s']].map(([label, value]) => (
@@ -57,13 +59,11 @@ export default function NewsBody() {
               </h3>
               <div style={{ marginTop: 8, fontSize: 13, color: '#3d5070' }}>−40°C装備をどう組んだか</div>
               <p style={{ marginTop: 18, fontSize: 12, lineHeight: 1.95, color: '#3d5070' }}>
-                グリーンランド遠征に向けた装備の検討とテストの記録。<br/>
-                極寒期間のビレイ環境、長時間行動、ビバークを想定した<br/>
-                レイヤリングとギア選定について。
+                {featured?.excerpt ?? 'グリーンランド遠征に向けた装備の検討とテストの記録。'}
               </p>
               <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 22 }}>
-                <span style={{ fontSize: 11, color: '#3d5070', ...enSt }}>by K.Sasaki</span>
-                <Link href="/chronicle/polar-circus" style={{
+                <span style={{ fontSize: 11, color: '#3d5070', ...enSt }}>by {featured?.author ?? 'K.Sasaki'}</span>
+                <Link href={featured?.href ?? '/chronicle/polar-circus'} style={{
                   display: 'inline-flex', alignItems: 'center', gap: 14, color: '#0a1628',
                   textDecoration: 'none', fontWeight: 500, fontSize: 12, letterSpacing: '.14em', ...enSt,
                 }}>

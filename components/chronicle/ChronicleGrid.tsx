@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { photos } from '@/lib/photos'
+import { chronicles } from '@/lib/data/chronicles'
 
 function TopoSketch() {
   return (
@@ -16,18 +16,17 @@ function TopoSketch() {
   )
 }
 
-const records = [
-  { yr: '2025', jp: 'ポーラーサーカス登攀記',   author: 'K. Sasaki',   en: 'Polar Circus, Greenland',   img: photos.icefallWall,    tag: '海外・極地', href: '/chronicle/polar-circus' },
-  { yr: '1991', jp: 'ヒマラヤ・シシャパンマ遠征', author: 'T. Katsube',  en: 'Shishapangma West Face',    img: photos.patagonia,      tag: '海外・ヒマラヤ', href: '/chronicle/polar-circus' },
-  { yr: '1985', jp: '谷川岳 一ノ倉沢 東壁',      author: 'H. Yokoyama', en: 'Ichinokura, Tanigawa-dake', img: photos.peakBW,         tag: '国内・谷川岳', mono: true, href: '/chronicle/polar-circus' },
-  { yr: '1977', jp: '剱岳 北壁 冬期単独行',       author: 'J. Furukawa', en: 'Mt. Tsurugi North Face',    img: photos.cirqueDusk,     tag: '国内・剱岳', href: '/chronicle/polar-circus' },
-  { yr: '1963', jp: '後立山連峰 針ノ木岳 北壁',   author: 'K. Narita',   en: 'Mt. Harinoki North Face',   img: null,                  tag: '国内・後立山', topo: true, href: '/chronicle/polar-circus' },
-  { yr: '2023', jp: 'パインブランカ北西壁',        author: 'Y. Nakajima', en: 'Paine Blanca NW Face',      img: photos.alpineTraverse, tag: '海外・パタゴニア', href: '/chronicle/polar-circus' },
-  { yr: '2009', jp: 'マッターホルン北壁 登攀記',  author: 'A. Watanabe', en: 'Matterhorn North Face',     img: photos.frostPinnacle,  tag: '海外・アルプス', href: '/chronicle/polar-circus' },
-  { yr: '1980', jp: 'アンナプルナⅣ峰 南壁',        author: 'M. Ushioda',  en: 'Annapurna IV South Face',   img: photos.cirqueDescent,  tag: '海外・ヒマラヤ', mono: true, href: '/chronicle/polar-circus' },
-  { yr: '1972', jp: '穂高岳 北穂高沢 左俣奥壁',   author: 'S. Araki',    en: 'Kitahotaka-dake',           img: photos.bugaboos,       tag: '国内・穂高', href: '/chronicle/polar-circus' },
-  { yr: '1968', jp: '大キレット 小窓尾根',         author: 'Y. Yokoo',    en: 'Kiretto, Japan Alps',       img: photos.iceSilhouette,  tag: '国内・剱岳', href: '/chronicle/polar-circus' },
-]
+const records = chronicles.map((c) => ({
+  yr: c.year,
+  jp: c.title,
+  author: c.author,
+  en: c.titleEn,
+  img: c.img,
+  tag: c.category,
+  href: c.slug === 'polar-circus' ? `/chronicle/${c.slug}` : '/chronicle/polar-circus',
+  mono: c.mono,
+  topo: c.topo,
+}))
 
 export default function ChronicleGrid() {
   return (

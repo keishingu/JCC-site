@@ -1,4 +1,4 @@
-import { photos } from '@/lib/photos'
+import { members } from '@/lib/data/members'
 
 function IgIcon() {
   return (
@@ -18,55 +18,6 @@ function FbIcon() {
   )
 }
 
-const members = [
-  {
-    name: '谷垣 優', role: '代表',
-    en: 'Yu Tanigaki',
-    meta: '1986年生まれ　埼玉県在住',
-    style: '冬季アルパイン・アイスクライミング',
-    records: [
-      ['2026', 'シートゥサミットフォール'],
-      ['2024', '谷川岳 一ノ倉沢 烏帽子沢奥壁 大氷柱'],
-      ['2023', '谷川岳 一ノ倉沢 滝沢第三スラブ'],
-    ],
-    img: photos.heroIce,
-  },
-  {
-    name: '新宮 圭',
-    en: 'Kei Shingu',
-    meta: '1989年生まれ　神奈川県在住',
-    style: '海外アイス・ミックスクライミング',
-    records: [
-      ['2016', 'バガブー スノーパッチスパイヤー　ノースサミットダイレクト'],
-      ['2015', 'カナディアンロッキー　ネメシス'],
-      ['2014', 'カナディアンロッキー　ポーラーサーカス'],
-    ],
-    img: photos.iceSilhouette,
-  },
-  {
-    name: '國井 悠里',
-    en: 'Yuri Kunii',
-    meta: '1986年生まれ　神奈川県在住',
-    style: '冬季アルパイン・アイスクライミング',
-    records: [
-      ['2026', 'シートゥサミットフォール'],
-      ['2024', '谷川岳 一ノ倉沢 烏帽子沢奥壁 大氷柱'],
-      ['2023', '谷川岳 一ノ倉沢 滝沢第三スラブ'],
-    ],
-    img: photos.icefallWall,
-  },
-  {
-    name: '山本 絋太郎',
-    en: 'Kotaro Yamamoto',
-    meta: '2004年生まれ　東京都在住',
-    style: '冬季アルパイン',
-    records: [
-      ['2026', '冬季 滝谷第四尾根'],
-    ],
-    img: photos.cirqueDusk,
-  },
-]
-
 const enSt: React.CSSProperties = { fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }
 const jpSt: React.CSSProperties = { fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }
 
@@ -79,7 +30,7 @@ export default function ClimbersGrid() {
           <span style={{ fontSize: 13, color: '#3d5070', ...jpSt }}>現役会員</span>
         </div>
         <div style={{ fontSize: 11, letterSpacing: '.18em', color: '#3d5070', display: 'inline-flex', alignItems: 'baseline', gap: 6, ...enSt }}>
-          <span style={{ fontSize: 22, color: '#0a1628', fontWeight: 500 }}>04</span>
+          <span style={{ fontSize: 22, color: '#0a1628', fontWeight: 500 }}>{String(members.length).padStart(2, '0')}</span>
           <span>CLIMBERS</span>
         </div>
       </div>
@@ -97,7 +48,7 @@ export default function ClimbersGrid() {
                 <span style={{ fontSize: 9.5, letterSpacing: '.18em', color: '#fff', background: '#16263f', padding: '2px 8px', fontWeight: 500, ...enSt }}>{m.role}</span>
               )}
             </div>
-            <div style={{ marginTop: 3, fontSize: 11, color: '#3d5070', letterSpacing: '.06em', ...enSt }}>{m.en}</div>
+            <div style={{ marginTop: 3, fontSize: 11, color: '#3d5070', letterSpacing: '.06em', ...enSt }}>{m.nameEn}</div>
             <div style={{ marginTop: 12, fontSize: 11, color: '#3d5070', lineHeight: 1.7 }}>{m.meta}</div>
             <div style={{ marginTop: 3, fontSize: 11, color: '#0a1628', lineHeight: 1.7 }}>{m.style}</div>
 

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import ArrowLink from '../layout/ArrowLink'
-import { photos } from '@/lib/photos'
+import { chronicles } from '@/lib/data/chronicles'
 
 function TopoSketch() {
   return (
@@ -23,13 +23,16 @@ function TopoSketch() {
   )
 }
 
-const records = [
-  { yr: '2025', jp: 'ポーラーサーカス登攀記',   author: 'K. Sasaki',   en: 'Polar Circus, Greenland',     img: photos.iceMassive,     href: '/chronicle/polar-circus' },
-  { yr: '1991', jp: 'ヒマラヤ・シシャパンマ遠征', author: 'T. Katsube',  en: 'Shishapangma West Face',      img: photos.frostPinnacle,  href: '/chronicle' },
-  { yr: '1985', jp: '谷川岳 一ノ倉沢 東壁',      author: 'H. Yokoyama', en: 'Ichinokura, Tanigawa-dake',   img: photos.peakBW,         href: '/chronicle', mono: true },
-  { yr: '1977', jp: '剱岳 北壁 冬期単独行',       author: 'J. Furukawa', en: 'Mt. Tsurugi North Face',      img: photos.cirqueDusk,     href: '/chronicle' },
-  { yr: '1963', jp: '後立山連峰 針ノ木岳 北壁',   author: 'K. Narita',   en: 'Mt. Harinoki North Face',     img: null,                  href: '/chronicle', topo: true },
-]
+const records = chronicles.slice(0, 5).map((c) => ({
+  yr: c.year,
+  jp: c.title,
+  author: c.author,
+  en: c.titleEn,
+  img: c.img,
+  href: c.slug === 'polar-circus' ? `/chronicle/${c.slug}` : '/chronicle',
+  mono: c.mono,
+  topo: c.topo,
+}))
 
 export default function HomeChronicleRow() {
   return (
