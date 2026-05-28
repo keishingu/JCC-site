@@ -1,4 +1,4 @@
-import type { Member } from '@/lib/microcms'
+import type { Climber } from '@/lib/microcms'
 
 function IgIcon() {
   return (
@@ -21,7 +21,7 @@ function FbIcon() {
 const enSt: React.CSSProperties = { fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }
 const jpSt: React.CSSProperties = { fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }
 
-export default function ClimbersGrid({ members }: { members: Member[] }) {
+export default function ClimbersGrid({ members }: { members: Climber[] }) {
   return (
     <section style={{ background: '#fff', padding: '50px 56px 60px' }}>
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 28 }}>
