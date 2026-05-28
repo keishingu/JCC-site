@@ -100,7 +100,7 @@ export default function ArticleContent() {
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(10,22,40,.35) 0%, rgba(10,22,40,0) 35%, rgba(10,22,40,.55) 100%)' }}/>
         <TopNav active="CHRONICLE"/>
         <div style={{ position: 'absolute', left: 56, top: 110, color: 'rgba(255,255,255,.78)' }}>
-          <Link href="/chronicle" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, color: 'inherit', textDecoration: 'none', fontSize: 11, letterSpacing: '.18em', ...enSt }}>
+          <Link href="/reports" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, color: 'inherit', textDecoration: 'none', fontSize: 11, letterSpacing: '.18em', ...enSt }}>
             <span style={{ width: 18, height: 1, background: 'currentColor' }}/>
             CHRONICLE / 2025 / POLAR CIRCUS
           </Link>
@@ -400,11 +400,11 @@ export default function ArticleContent() {
             <h3 style={{ margin: 0, fontSize: 22, letterSpacing: '.06em', fontWeight: 500, color: 'var(--color-ink)', ...enSt }}>RELATED CHRONICLES</h3>
             <span style={{ fontSize: 13, color: 'var(--color-slate)', ...jpSt }}>関連する登攀記録</span>
           </div>
-          <ArrowLink href="/chronicle">すべての記録を見る</ArrowLink>
+          <ArrowLink href="/reports">すべての記録を見る</ArrowLink>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 18 }}>
           {relatedRecords.map((r) => (
-            <Link key={r.yr} href="/chronicle/polar-circus" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Link key={r.yr} href="/reports/polar-circus" style={{ textDecoration: 'none', color: 'inherit' }}>
               <div style={{ aspectRatio: '1/1', background: '#222', overflow: 'hidden' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={r.img} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover',

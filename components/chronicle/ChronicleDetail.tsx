@@ -85,7 +85,7 @@ export default function ChronicleDetail() {
         <p style={{ marginTop: 30, fontSize: 12.5, lineHeight: 1.95, color: 'rgba(255,255,255,.85)', maxWidth: 360 }}>
           長年の夢だったポーラーサーカス。厳冬期のグリーンランドで、<br/>氷と風と静寂の中、私たちは何を見たのか。<br/>アプローチから登攀、ビバーク、そして下山までの記録。
         </p>
-        <Link href="/chronicle/polar-circus" style={{
+        <Link href="/reports/polar-circus" style={{
           marginTop: 30, display: 'inline-flex', alignItems: 'center', gap: 10,
           padding: '10px 18px', border: '1px solid rgba(255,255,255,.25)', color: '#fff',
           fontSize: 12, cursor: 'pointer', textDecoration: 'none',
