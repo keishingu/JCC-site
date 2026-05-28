@@ -10,7 +10,7 @@ interface PageShellProps {
 export default function PageShell({ sidebarProps = {}, footerProps = {}, children }: PageShellProps) {
   return (
     <div style={{
-      display: 'flex', minHeight: '100vh', width: '100%',
+      display: 'flex', minHeight: '100vh', width: '100%', minWidth: 1280,
       background: '#f3f1ea',
       fontFamily: '"Shippori Mincho B1","Noto Serif JP","Cormorant Garamond",serif',
       color: '#0a1628',
