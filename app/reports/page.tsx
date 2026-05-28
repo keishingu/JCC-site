@@ -3,7 +3,6 @@ export const dynamic = 'force-dynamic'
 import PageShell from '@/components/layout/PageShell'
 import ChronicleHero from '@/components/chronicle/ChronicleHero'
 import ChronicleGrid from '@/components/chronicle/ChronicleGrid'
-import ChronicleDetail from '@/components/chronicle/ChronicleDetail'
 import { getReports } from '@/lib/microcms'
 
 export default async function ReportsPage() {
@@ -13,7 +12,6 @@ export default async function ReportsPage() {
     <PageShell sidebarProps={{ variant: 'minimal', pageLabel: 'REPORTS — 01' }}>
       <ChronicleHero/>
       <ChronicleGrid records={reports}/>
-      <ChronicleDetail/>
     </PageShell>
   )
 }
