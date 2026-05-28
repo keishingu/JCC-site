@@ -9,7 +9,7 @@ export default async function ReportsPage() {
   const { contents: reports } = await getReports()
 
   return (
-    <PageShell sidebarProps={{ variant: 'minimal', pageLabel: 'REPORTS — 01' }}>
+    <PageShell>
       <ChronicleHero/>
       <ChronicleGrid records={reports}/>
     </PageShell>

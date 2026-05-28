@@ -17,7 +17,7 @@ export default async function HomePage() {
   ])
 
   return (
-    <PageShell sidebarProps={{ variant: 'minimal', pageLabel: 'SINCE' }}>
+    <PageShell>
       <HomeHero recentNews={news.slice(0, 3)} settings={settings}/>
       <HomePhilosophy settings={settings}/>
       <HomeChronicleRow reports={reports.slice(0, 5)}/>

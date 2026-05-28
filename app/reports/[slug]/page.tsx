@@ -14,7 +14,7 @@ export default async function ReportPage({ params }: { params: Promise<{ slug: s
   if (!report) notFound()
 
   return (
-    <PageShell sidebarProps={{ variant: 'minimal', pageLabel: `CHRONICLE — ${report.year}` }}>
+    <PageShell>
       {/* Hero */}
       {report.heroImage && (
         <div style={{ position: 'relative', height: 520, overflow: 'hidden', background: '#111' }}>

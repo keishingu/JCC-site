@@ -29,7 +29,7 @@ export default async function NewsItemPage({ params }: { params: Promise<{ slug:
   if (!item) notFound()
 
   return (
-    <PageShell sidebarProps={{ variant: 'full', activeNav: 'NEWS', decoration: 'mountain' }}>
+    <PageShell>
       {/* Hero */}
       {item.heroImage && (
         <div style={{ position: 'relative', height: 400, overflow: 'hidden', background: '#111' }}>
