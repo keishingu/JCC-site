@@ -1,14 +1,19 @@
 import Link from 'next/link'
 import TopNav from '../layout/TopNav'
 import { photos } from '@/lib/photos'
+import type { NewsItem } from '@/lib/microcms'
 
-const newsItems: [string, string, string][] = [
-  ['2025.05.20', '「ポーラーサーカス登攀記」を公開しました', '/chronicle/polar-circus'],
-  ['2025.04.15', '会報 No.312 を掲載しました',                '/journal'],
-  ['2025.01.01', '新入会員の募集について',                    '/climbers'],
-]
+function formatDate(iso?: string) {
+  if (!iso) return ''
+  return iso.slice(0, 10).replace(/-/g, '.')
+}
 
-export default function HomeHero() {
+const tagLabels: Record<string, string> = {
+  announcement: 'お知らせ', journal: '会報', recruit: '募集',
+  field: 'FIELD', tech: 'TECH.', gear: 'GEAR', expedition: 'EXPEDITION',
+}
+
+export default function HomeHero({ recentNews }: { recentNews: NewsItem[] }) {
   return (
     <section style={{ position: 'relative', height: 720, overflow: 'hidden' }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -61,34 +66,36 @@ export default function HomeHero() {
       </div>
 
       {/* NEWS box */}
-      <div style={{ position: 'absolute', right: 60, bottom: 58, width: 360 }}>
-        <div style={{ fontSize: 12, letterSpacing: '.22em', color: '#fff', marginBottom: 14, opacity: .92,
-          fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif', textTransform: 'uppercase', fontWeight: 600 }}>
-          <span style={{ display: 'inline-block', width: 18, height: 1, background: '#fff', verticalAlign: 'middle', marginRight: 10, transform: 'translateY(-2px)' }}/>
-          NEWS
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, color: '#fff', fontSize: 12.5, lineHeight: 1.55 }}>
-          {newsItems.map(([date, title, href]) => (
-            <Link key={date} href={href} style={{
-              display: 'flex', gap: 18, color: '#fff', textDecoration: 'none',
-              paddingBottom: 12, borderBottom: '1px solid rgba(255,255,255,.18)',
+      {recentNews.length > 0 && (
+        <div style={{ position: 'absolute', right: 60, bottom: 58, width: 360 }}>
+          <div style={{ fontSize: 12, letterSpacing: '.22em', color: '#fff', marginBottom: 14, opacity: .92,
+            fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif', textTransform: 'uppercase', fontWeight: 600 }}>
+            <span style={{ display: 'inline-block', width: 18, height: 1, background: '#fff', verticalAlign: 'middle', marginRight: 10, transform: 'translateY(-2px)' }}/>
+            NEWS
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, color: '#fff', fontSize: 12.5, lineHeight: 1.55 }}>
+            {recentNews.map((n) => (
+              <Link key={n.id} href={`/news/${n.slug}`} style={{
+                display: 'flex', gap: 18, color: '#fff', textDecoration: 'none',
+                paddingBottom: 12, borderBottom: '1px solid rgba(255,255,255,.18)',
+              }}>
+                <span style={{ flex: '0 0 auto', opacity: .82, letterSpacing: '.04em',
+                  fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{formatDate(n.publishedAt)}</span>
+                <span style={{ opacity: .98 }}>{n.title}</span>
+              </Link>
+            ))}
+          </div>
+          <div style={{ marginTop: 18 }}>
+            <Link href="/news" style={{
+              display: 'inline-flex', alignItems: 'center', gap: 12, color: '#fff',
+              textDecoration: 'none', fontSize: 11.5, letterSpacing: '.18em', fontWeight: 500,
+              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
             }}>
-              <span style={{ flex: '0 0 auto', opacity: .82, letterSpacing: '.04em',
-                fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{date}</span>
-              <span style={{ opacity: .98 }}>{title}</span>
+              <span style={{ width: 22, height: 1, background: '#fff' }}/>VIEW ALL
             </Link>
-          ))}
+          </div>
         </div>
-        <div style={{ marginTop: 18 }}>
-          <Link href="/news" style={{
-            display: 'inline-flex', alignItems: 'center', gap: 12, color: '#fff',
-            textDecoration: 'none', fontSize: 11.5, letterSpacing: '.18em', fontWeight: 500,
-            fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
-          }}>
-            <span style={{ width: 22, height: 1, background: '#fff' }}/>VIEW ALL
-          </Link>
-        </div>
-      </div>
+      )}
     </section>
   )
 }

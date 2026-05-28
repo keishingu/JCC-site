@@ -66,6 +66,24 @@ export type Climber = MicroCMSListContent & {
 
 const isConfigured = !!(process.env.MICROCMS_SERVICE_DOMAIN && process.env.MICROCMS_API_KEY)
 
+export async function getReport(slug: string): Promise<Report | null> {
+  if (!isConfigured) return null
+  const res = await client.getList<Report>({
+    endpoint: 'reports',
+    queries: { filters: `slug[equals]${slug}`, limit: 1 },
+  })
+  return res.contents[0] ?? null
+}
+
+export async function getNewsItem(slug: string): Promise<NewsItem | null> {
+  if (!isConfigured) return null
+  const res = await client.getList<NewsItem>({
+    endpoint: 'news',
+    queries: { filters: `slug[equals]${slug}`, limit: 1 },
+  })
+  return res.contents[0] ?? null
+}
+
 export async function getReports() {
   if (!isConfigured) return { contents: [] as Report[], totalCount: 0 }
   return client.getList<Report>({ endpoint: 'reports', queries: { limit: 100, orders: '-year' } })
