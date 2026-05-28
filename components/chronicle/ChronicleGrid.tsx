@@ -64,7 +64,7 @@ export default function ChronicleGrid({ records }: { records: Report[] }) {
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 18 }}>
         {records.map((r) => (
-          <Link key={r.id} href={`/chronicle/${r.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Link key={r.id} href={`/reports/${r.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
             <div style={{ aspectRatio: '1/1', background: '#222', overflow: 'hidden', position: 'relative' }}>
               {r.heroImage ? (
                 // eslint-disable-next-line @next/next/no-img-element

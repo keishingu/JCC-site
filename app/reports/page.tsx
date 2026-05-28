@@ -4,13 +4,13 @@ import ChronicleGrid from '@/components/chronicle/ChronicleGrid'
 import ChronicleDetail from '@/components/chronicle/ChronicleDetail'
 import { getReports } from '@/lib/microcms'
 
-export default async function ChroniclePage() {
-  const { contents: chronicles } = await getReports()
+export default async function ReportsPage() {
+  const { contents: reports } = await getReports()
 
   return (
-    <PageShell sidebarProps={{ variant: 'minimal', pageLabel: 'CHRONICLE — 01' }}>
+    <PageShell sidebarProps={{ variant: 'minimal', pageLabel: 'REPORTS — 01' }}>
       <ChronicleHero/>
-      <ChronicleGrid records={chronicles}/>
+      <ChronicleGrid records={reports}/>
       <ChronicleDetail/>
     </PageShell>
   )

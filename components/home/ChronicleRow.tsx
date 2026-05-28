@@ -28,11 +28,11 @@ export default function HomeChronicleRow({ reports }: { reports: Report[] }) {
             fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>CHRONICLE</h2>
           <span style={{ fontSize: 13, color: '#3d5070', letterSpacing: '.08em' }}>登攀記録アーカイブ</span>
         </div>
-        <ArrowLink href="/chronicle">すべての記録を見る</ArrowLink>
+        <ArrowLink href="/reports">すべての記録を見る</ArrowLink>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 18 }}>
         {reports.map((r) => (
-          <Link key={r.id} href={`/chronicle/${r.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Link key={r.id} href={`/reports/${r.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
             <div style={{ aspectRatio: '1/1', background: '#222', overflow: 'hidden', position: 'relative' }}>
               {r.heroImage ? (
                 // eslint-disable-next-line @next/next/no-img-element
