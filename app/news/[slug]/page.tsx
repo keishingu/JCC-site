@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import PageShell from '@/components/layout/PageShell'
-import Markdown from '@/components/Markdown'
+import RichText from '@/components/RichText'
 import { getNewsItem } from '@/lib/microcms'
 
 export const dynamic = 'force-dynamic'
@@ -58,7 +58,7 @@ export default async function NewsItemPage({ params }: { params: Promise<{ slug:
         {/* Body */}
         {item.body && (
           <div className="prose" style={{ maxWidth: 720 }}>
-            <Markdown content={item.body}/>
+            <RichText content={item.body}/>
           </div>
         )}
       </article>
