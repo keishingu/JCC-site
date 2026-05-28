@@ -54,11 +54,31 @@ export default async function ReportPage({ params }: { params: Promise<{ slug: s
           </div>
         )}
 
-        {/* Topo image */}
-        {report.topoImage && (
-          <div style={{ marginBottom: 48, maxWidth: 400 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={report.topoImage.url} alt="トポ図" style={{ width: '100%', height: 'auto' }}/>
+        {/* Topo + course info */}
+        {(report.topoImage || report.courseTime || report.gear) && (
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 48, marginBottom: 48, alignItems: 'start' }}>
+            {/* Left: course time & gear */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
+              {report.courseTime && (
+                <div>
+                  <div style={{ fontSize: 11, letterSpacing: '.22em', color: '#3d5070', marginBottom: 10, ...enSt }}>コースタイム</div>
+                  <div style={{ fontSize: 13, color: '#0a1628', lineHeight: 1.9, whiteSpace: 'pre-wrap', ...jpSt }}>{report.courseTime}</div>
+                </div>
+              )}
+              {report.gear && (
+                <div>
+                  <div style={{ fontSize: 11, letterSpacing: '.22em', color: '#3d5070', marginBottom: 10, ...enSt }}>使用ギア</div>
+                  <div style={{ fontSize: 13, color: '#0a1628', lineHeight: 1.9, whiteSpace: 'pre-wrap', ...jpSt }}>{report.gear}</div>
+                </div>
+              )}
+            </div>
+            {/* Right: topo image */}
+            {report.topoImage && (
+              <div style={{ width: 320, flexShrink: 0 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={report.topoImage.url} alt="トポ図" style={{ width: '100%', height: 'auto' }}/>
+              </div>
+            )}
           </div>
         )}
 

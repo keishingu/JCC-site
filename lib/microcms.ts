@@ -1,10 +1,14 @@
 import { createClient } from 'microcms-js-sdk'
 import type { MicroCMSImage, MicroCMSListContent } from 'microcms-js-sdk'
 
-export const client = createClient({
-  serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN || '',
-  apiKey: process.env.MICROCMS_API_KEY || '',
-})
+const isConfigured = !!(process.env.MICROCMS_SERVICE_DOMAIN && process.env.MICROCMS_API_KEY)
+
+export const client = isConfigured
+  ? createClient({
+      serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN!,
+      apiKey: process.env.MICROCMS_API_KEY!,
+    })
+  : ({} as ReturnType<typeof createClient>)
 
 export type Climber = MicroCMSListContent & {
   name: string
@@ -34,6 +38,8 @@ export type Report = MicroCMSListContent & {
   lead?: string
   body?: string
   topoImage?: MicroCMSImage
+  courseTime?: string
+  gear?: string
   photos?: { image: MicroCMSImage; caption?: string }[] | null
   activityLog?: { date: string; day: string; record: string; temp?: string; note?: string }[]
   featured?: boolean
@@ -61,8 +67,6 @@ export type JournalIssue = MicroCMSListContent & {
   toc?: { page: string; title: string; author?: string }[]
   photos?: { image: MicroCMSImage; caption?: string }[]
 }
-
-const isConfigured = !!(process.env.MICROCMS_SERVICE_DOMAIN && process.env.MICROCMS_API_KEY)
 
 export async function getReport(slug: string): Promise<Report | null> {
   if (!isConfigured) return null
