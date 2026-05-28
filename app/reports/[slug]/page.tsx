@@ -34,7 +34,7 @@ export default async function ReportPage({ params }: { params: Promise<{ slug: s
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 24, paddingBottom: 36, borderBottom: '1px solid rgba(10,22,40,0.08)', marginBottom: 48 }}>
           {[
             ['年', report.year?.toString()],
-            ['登攀者', report.climbers?.length ? report.climbers.map(c => c.name).join('・') : undefined],
+            ['クライマー', report.climbers?.length ? report.climbers.map(c => c.name).join('・') : undefined],
             ['エリア', report.area],
             ['期間', report.period],
             ['スタイル', report.style],
