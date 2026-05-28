@@ -5,7 +5,7 @@ import Link from 'next/link'
 const navItems = [
   { label: 'HOME',       href: '/' },
   { label: 'ABOUT JCC',  href: null },
-  { label: 'CHRONICLE',  href: '/reports' },
+  { label: 'REPORTS',  href: '/reports' },
   { label: 'JOURNAL',    href: '/journal' },
   { label: 'NEWS',       href: '/news' },
   { label: 'CLIMBERS',   href: '/climbers' },

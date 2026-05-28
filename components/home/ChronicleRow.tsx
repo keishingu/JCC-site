@@ -25,7 +25,7 @@ export default function HomeChronicleRow({ reports }: { reports: Report[] }) {
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 22 }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
           <h2 style={{ margin: 0, fontSize: 26, letterSpacing: '.06em', fontWeight: 500, color: 'var(--color-ink)',
-            fontFamily: 'var(--font-en-sans)' }}>CHRONICLE</h2>
+            fontFamily: 'var(--font-en-sans)' }}>REPORTS</h2>
           <span style={{ fontSize: 13, color: 'var(--color-slate)', letterSpacing: '.08em' }}>登攀記録アーカイブ</span>
         </div>
         <ArrowLink href="/reports">すべての記録を見る</ArrowLink>

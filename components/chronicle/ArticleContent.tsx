@@ -98,11 +98,11 @@ export default function ArticleContent() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={photos.iceMassive} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(.78) contrast(1.02) brightness(.9)' }}/>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(10,22,40,.35) 0%, rgba(10,22,40,0) 35%, rgba(10,22,40,.55) 100%)' }}/>
-        <TopNav active="CHRONICLE"/>
+        <TopNav active="REPORTS"/>
         <div style={{ position: 'absolute', left: 56, top: 110, color: 'rgba(255,255,255,.78)' }}>
           <Link href="/reports" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, color: 'inherit', textDecoration: 'none', fontSize: 11, letterSpacing: '.18em', ...enSt }}>
             <span style={{ width: 18, height: 1, background: 'currentColor' }}/>
-            CHRONICLE / 2025 / POLAR CIRCUS
+            REPORTS / 2025 / POLAR CIRCUS
           </Link>
         </div>
         <div style={{ position: 'absolute', left: 56, bottom: 60, right: 56, color: '#fff' }}>
@@ -397,7 +397,7 @@ export default function ArticleContent() {
       <section style={{ background: 'var(--color-cream)', padding: '60px 56px 80px', borderTop: '1px solid rgba(10,22,40,0.08)' }}>
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 26 }}>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 18 }}>
-            <h3 style={{ margin: 0, fontSize: 22, letterSpacing: '.06em', fontWeight: 500, color: 'var(--color-ink)', ...enSt }}>RELATED CHRONICLES</h3>
+            <h3 style={{ margin: 0, fontSize: 22, letterSpacing: '.06em', fontWeight: 500, color: 'var(--color-ink)', ...enSt }}>RELATED REPORTS</h3>
             <span style={{ fontSize: 13, color: 'var(--color-slate)', ...jpSt }}>関連する登攀記録</span>
           </div>
           <ArrowLink href="/reports">すべての記録を見る</ArrowLink>
