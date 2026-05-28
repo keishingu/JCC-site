@@ -71,9 +71,9 @@ export type JournalIssue = MicroCMSListContent & {
 export type SiteSettings = {
   topImage?: MicroCMSImage
   topImageCaption?: string
-  delegateText?: string
-  delegateMessage?: string
-  dekegeteImage?: MicroCMSImage  // microCMS側のキー名（typo）
+  philosophyText?: string
+  philosophyMessage?: string
+  philosophyImage?: MicroCMSImage
 }
 
 export async function getReport(slug: string): Promise<Report | null> {

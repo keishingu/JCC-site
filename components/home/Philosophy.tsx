@@ -3,9 +3,9 @@ import { photos } from '@/lib/photos'
 import type { SiteSettings } from '@/lib/microcms'
 
 export default function HomePhilosophy({ settings }: { settings: SiteSettings }) {
-  const delegateText = settings.delegateText ?? 'アルピニズムに徹した、\n自立した登攀者の集団'
-  const delegateMessage = settings.delegateMessage ?? '日本クライマースクラブ（JCC）は、1958年、ロッククライミングを中心とした\n高度な登山を志す者たちによって創設されました。\n私たちは、自然に対峙する中で、自らの技術と判断とを磨き、自由で責任ある登攀を追求します。\n記録や名声よりも、そこに至るプロセスと経験を重んじ、次の世代へとその精神を継承していきます。'
-  const imageSrc = settings.dekegeteImage?.url ?? photos.snowRidge
+  const delegateText = settings.philosophyText ?? 'アルピニズムに徹した、\n自立した登攀者の集団'
+  const delegateMessage = settings.philosophyMessage ?? '日本クライマースクラブ（JCC）は、1958年、ロッククライミングを中心とした\n高度な登山を志す者たちによって創設されました。\n私たちは、自然に対峙する中で、自らの技術と判断とを磨き、自由で責任ある登攀を追求します。\n記録や名声よりも、そこに至るプロセスと経験を重んじ、次の世代へとその精神を継承していきます。'
+  const imageSrc = settings.philosophyImage?.url ?? photos.snowRidge
 
   return (
     <section style={{ position: 'relative', padding: '90px 56px 110px', overflow: 'hidden' }}>
