@@ -51,11 +51,14 @@ export type JournalIssue = MicroCMSListContent & {
 
 export type Climber = MicroCMSListContent & {
   name: string
-  image?: MicroCMSImage
-  description?: string
+  nameEn?: string
+  photo?: MicroCMSImage
+  birthYear?: number
+  location?: string
   climbingHistory?: { year: string; route: string }[]
   instagram?: string
   facebook?: string
+  active?: boolean
   order?: number
 }
 
@@ -98,6 +101,6 @@ export async function getClimbers() {
   if (!isConfigured) return { contents: [] as Climber[], totalCount: 0 }
   return client.getList<Climber>({
     endpoint: 'climbers',
-    queries: { limit: 100, orders: 'order' },
+    queries: { limit: 100, filters: 'active[equals]true', orders: 'order' },
   })
 }

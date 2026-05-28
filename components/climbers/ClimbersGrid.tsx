@@ -39,16 +39,19 @@ export default function ClimbersGrid({ members }: { members: Climber[] }) {
         {members.map((m) => (
           <article key={m.id} style={{ position: 'relative', display: 'flex', flexDirection: 'column' }}>
             <div style={{ aspectRatio: '4/5', overflow: 'hidden', background: '#222' }}>
-              {m.image && (
+              {m.photo && (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={m.image.url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(1) contrast(1.05) brightness(.95)' }}/>
+                <img src={m.photo.url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(1) contrast(1.05) brightness(.95)' }}/>
               )}
             </div>
-            <div style={{ marginTop: 16 }}>
+            <div style={{ marginTop: 16, display: 'flex', alignItems: 'baseline', gap: 8, flexWrap: 'wrap' }}>
               <h3 style={{ margin: 0, fontSize: 18, color: '#0a1628', letterSpacing: '.02em', ...jpSt }}>{m.name}</h3>
             </div>
-            {m.description && (
-              <div style={{ marginTop: 8, fontSize: 11, color: '#3d5070', lineHeight: 1.7 }}>{m.description}</div>
+            {m.nameEn && <div style={{ marginTop: 3, fontSize: 11, color: '#3d5070', letterSpacing: '.06em', ...enSt }}>{m.nameEn}</div>}
+            {(m.birthYear || m.location) && (
+              <div style={{ marginTop: 8, fontSize: 11, color: '#3d5070', lineHeight: 1.7 }}>
+                {[m.birthYear && `${m.birthYear}年生まれ`, m.location && `${m.location}在住`].filter(Boolean).join('　')}
+              </div>
             )}
 
             {m.climbingHistory && m.climbingHistory.length > 0 && (
