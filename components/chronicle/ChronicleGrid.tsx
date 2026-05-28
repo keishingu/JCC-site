@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { photos } from '@/lib/photos'
+import type { Chronicle } from '@/lib/microcms'
 
 function TopoSketch() {
   return (
@@ -16,20 +16,7 @@ function TopoSketch() {
   )
 }
 
-const records = [
-  { yr: '2025', jp: 'ポーラーサーカス登攀記',   author: 'K. Sasaki',   en: 'Polar Circus, Greenland',   img: photos.icefallWall,    tag: '海外・極地', href: '/chronicle/polar-circus' },
-  { yr: '1991', jp: 'ヒマラヤ・シシャパンマ遠征', author: 'T. Katsube',  en: 'Shishapangma West Face',    img: photos.patagonia,      tag: '海外・ヒマラヤ', href: '/chronicle/polar-circus' },
-  { yr: '1985', jp: '谷川岳 一ノ倉沢 東壁',      author: 'H. Yokoyama', en: 'Ichinokura, Tanigawa-dake', img: photos.peakBW,         tag: '国内・谷川岳', mono: true, href: '/chronicle/polar-circus' },
-  { yr: '1977', jp: '剱岳 北壁 冬期単独行',       author: 'J. Furukawa', en: 'Mt. Tsurugi North Face',    img: photos.cirqueDusk,     tag: '国内・剱岳', href: '/chronicle/polar-circus' },
-  { yr: '1963', jp: '後立山連峰 針ノ木岳 北壁',   author: 'K. Narita',   en: 'Mt. Harinoki North Face',   img: null,                  tag: '国内・後立山', topo: true, href: '/chronicle/polar-circus' },
-  { yr: '2023', jp: 'パインブランカ北西壁',        author: 'Y. Nakajima', en: 'Paine Blanca NW Face',      img: photos.alpineTraverse, tag: '海外・パタゴニア', href: '/chronicle/polar-circus' },
-  { yr: '2009', jp: 'マッターホルン北壁 登攀記',  author: 'A. Watanabe', en: 'Matterhorn North Face',     img: photos.frostPinnacle,  tag: '海外・アルプス', href: '/chronicle/polar-circus' },
-  { yr: '1980', jp: 'アンナプルナⅣ峰 南壁',        author: 'M. Ushioda',  en: 'Annapurna IV South Face',   img: photos.cirqueDescent,  tag: '海外・ヒマラヤ', mono: true, href: '/chronicle/polar-circus' },
-  { yr: '1972', jp: '穂高岳 北穂高沢 左俣奥壁',   author: 'S. Araki',    en: 'Kitahotaka-dake',           img: photos.bugaboos,       tag: '国内・穂高', href: '/chronicle/polar-circus' },
-  { yr: '1968', jp: '大キレット 小窓尾根',         author: 'Y. Yokoo',    en: 'Kiretto, Japan Alps',       img: photos.iceSilhouette,  tag: '国内・剱岳', href: '/chronicle/polar-circus' },
-]
-
-export default function ChronicleGrid() {
+export default function ChronicleGrid({ records }: { records: Chronicle[] }) {
   return (
     <section style={{ background: '#f7f5ee', padding: '40px 56px 60px' }}>
       {/* Filter bar */}
@@ -59,7 +46,7 @@ export default function ChronicleGrid() {
       {/* Count + view toggle */}
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 22 }}>
         <div style={{ fontSize: 15, color: '#0a1628', fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }}>
-          全 <span style={{ fontSize: 22, fontWeight: 500, margin: '0 4px', fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>98</span> 件
+          全 <span style={{ fontSize: 22, fontWeight: 500, margin: '0 4px', fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{records.length}</span> 件
         </div>
         <div style={{ display: 'flex', gap: 18, alignItems: 'center', fontSize: 11, color: '#3d5070' }}>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#0a1628', fontWeight: 500,
@@ -77,24 +64,28 @@ export default function ChronicleGrid() {
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 18 }}>
         {records.map((r) => (
-          <Link key={r.yr + r.jp} href={r.href} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Link key={r.id} href={`/chronicle/${r.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
             <div style={{ aspectRatio: '1/1', background: '#222', overflow: 'hidden', position: 'relative' }}>
-              {r.topo ? <TopoSketch/> : (
+              {r.heroImage ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={r.img!} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover',
-                  filter: (r as {mono?: boolean}).mono ? 'grayscale(1) contrast(1.05)' : 'saturate(.6) contrast(.95)' }}/>
+                <img src={r.heroImage.url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover',
+                  filter: 'saturate(.6) contrast(.95)' }}/>
+              ) : (
+                <TopoSketch/>
               )}
             </div>
             <div style={{ marginTop: 12, fontSize: 16, fontWeight: 500, color: '#0a1628',
-              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.yr}</div>
+              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.year}</div>
             <div style={{ marginTop: 5, fontSize: 13.5, lineHeight: 1.4, color: '#0a1628',
-              fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }}>{r.jp}</div>
+              fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }}>{r.title}</div>
             <div style={{ marginTop: 4, fontSize: 10.5, color: '#3d5070',
-              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.author}</div>
+              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.climbers}</div>
             <div style={{ marginTop: 1, fontSize: 10, color: '#6a7d97',
-              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.en}</div>
-            <div style={{ marginTop: 8, display: 'inline-block', fontSize: 10, padding: '3px 8px',
-              border: '1px solid rgba(10,22,40,0.08)', color: '#3d5070', background: 'rgba(255,255,255,.5)' }}>{r.tag}</div>
+              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.titleEn}</div>
+            {r.category && (
+              <div style={{ marginTop: 8, display: 'inline-block', fontSize: 10, padding: '3px 8px',
+                border: '1px solid rgba(10,22,40,0.08)', color: '#3d5070', background: 'rgba(255,255,255,.5)' }}>{r.category}</div>
+            )}
           </Link>
         ))}
       </div>

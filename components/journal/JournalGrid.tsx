@@ -1,4 +1,4 @@
-import { photos } from '@/lib/photos'
+import type { JournalIssue } from '@/lib/microcms'
 
 function TopoSketch() {
   return (
@@ -13,19 +13,15 @@ function TopoSketch() {
   )
 }
 
-function JournalCoverLarge({ no, date, cover, sepia, mono, topo }: {
-  no: string; date: string; cover?: string; sepia?: boolean; mono?: boolean; topo?: boolean
-}) {
+function JournalCover({ issue }: { issue: JournalIssue }) {
   return (
     <div style={{ aspectRatio: '3/4', background: '#ddd', position: 'relative', overflow: 'hidden', boxShadow: '0 1px 2px rgba(0,0,0,.06)' }}>
-      {topo ? (
-        <div style={{ width: '100%', height: '100%', background: '#e8e2d0' }}><TopoSketch/></div>
-      ) : (
+      {issue.coverImage ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={cover} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover',
-          filter: sepia ? 'sepia(.5) contrast(.95) brightness(.95)'
-                : mono  ? 'grayscale(1) contrast(1.05)'
-                : 'saturate(.6) contrast(.95) brightness(.95)' }}/>
+        <img src={issue.coverImage.url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover',
+          filter: 'saturate(.6) contrast(.95) brightness(.95)' }}/>
+      ) : (
+        <div style={{ width: '100%', height: '100%', background: '#e8e2d0' }}><TopoSketch/></div>
       )}
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(10,22,40,.20) 0%, rgba(10,22,40,0) 35%)' }}/>
       <div style={{
@@ -37,27 +33,14 @@ function JournalCoverLarge({ no, date, cover, sepia, mono, topo }: {
         position: 'absolute', top: 12, right: 11, color: 'rgba(255,255,255,.92)', fontSize: 7,
         letterSpacing: '.12em', textAlign: 'right',
         fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
-      }}>No.{no}<br/>{date}</div>
+      }}>No.{issue.issueNumber}<br/>{issue.season}</div>
     </div>
   )
 }
 
-const issues = [
-  { no: '312', date: '2025 春号', cover: photos.frostPinnacle },
-  { no: '311', date: '2024 冬号', cover: photos.iceMassive },
-  { no: '310', date: '2024 秋号', cover: photos.bugaboos, sepia: true },
-  { no: '309', date: '2024 夏号', cover: photos.snowRidge, mono: true },
-  { no: '308', date: '2023 冬号', cover: photos.cirqueDusk },
-  { no: '307', date: '2023 秋号', cover: photos.alpineTraverse },
-  { no: '306', date: '2023 夏号', cover: photos.icefallWall },
-  { no: '305', date: '2022 冬号', cover: photos.iceSilhouette },
-  { no: '304', date: '2022 秋号', cover: photos.peakBW },
-  { no: '303', date: '2022 夏号', cover: undefined, topo: true },
-]
-
 const tags = ['冬壁','谷川岳','ヒマラヤ','沢登り','アルパイン','遠征','岩場','縦走','クライミング','海外','装備・技術','遭難・雪崩','その他']
 
-export default function JournalGrid() {
+export default function JournalGrid({ issues }: { issues: JournalIssue[] }) {
   return (
     <section style={{ background: '#f7f5ee', padding: '36px 56px 50px', display: 'grid', gridTemplateColumns: '180px 1fr', gap: 36 }}>
       {/* Filter rail */}
@@ -107,7 +90,7 @@ export default function JournalGrid() {
       <div>
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 18 }}>
           <div style={{ fontSize: 15, color: '#0a1628', fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }}>
-            全 <span style={{ fontSize: 22, fontWeight: 500, margin: '0 4px', fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>68</span> 冊
+            全 <span style={{ fontSize: 22, fontWeight: 500, margin: '0 4px', fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{issues.length}</span> 冊
           </div>
           <div style={{ display: 'flex', gap: 16, fontSize: 11, color: '#3d5070' }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#0a1628', fontWeight: 500,
@@ -124,11 +107,11 @@ export default function JournalGrid() {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 18, rowGap: 26 }}>
           {issues.map((issue) => (
-            <div key={issue.no}>
-              <JournalCoverLarge {...issue}/>
+            <div key={issue.id}>
+              <JournalCover issue={issue}/>
               <div style={{ marginTop: 10, fontSize: 13, color: '#0a1628', fontWeight: 500,
-                fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>No.{issue.no}</div>
-              <div style={{ fontSize: 11.5, color: '#3d5070' }}>{issue.date}</div>
+                fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>No.{issue.issueNumber}</div>
+              <div style={{ fontSize: 11.5, color: '#3d5070' }}>{issue.season}</div>
             </div>
           ))}
         </div>
