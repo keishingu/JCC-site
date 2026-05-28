@@ -5,7 +5,7 @@ import { getReport, getReports } from '@/lib/microcms'
 
 export async function generateStaticParams() {
   const { contents } = await getReports()
-  return contents.map((r) => ({ slug: r.slug }))
+  return contents.filter((r) => r.slug).map((r) => ({ slug: r.slug }))
 }
 
 const enSt: React.CSSProperties = { fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }

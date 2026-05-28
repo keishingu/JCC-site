@@ -5,7 +5,7 @@ import { getNewsItem, getNewsList } from '@/lib/microcms'
 
 export async function generateStaticParams() {
   const { contents } = await getNewsList()
-  return contents.map((n) => ({ slug: n.slug }))
+  return contents.filter((n) => n.slug).map((n) => ({ slug: n.slug }))
 }
 
 const tagLabels: Record<string, string> = {
