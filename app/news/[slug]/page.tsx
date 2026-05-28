@@ -3,7 +3,7 @@ import PageShell from '@/components/layout/PageShell'
 import Markdown from '@/components/Markdown'
 import { getNewsItem } from '@/lib/microcms'
 
-export const revalidate = 60
+export const dynamic = 'force-dynamic'
 
 const tagLabels: Record<string, string> = {
   announcement: 'お知らせ',

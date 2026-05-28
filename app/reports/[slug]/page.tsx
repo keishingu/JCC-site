@@ -3,7 +3,7 @@ import PageShell from '@/components/layout/PageShell'
 import Markdown from '@/components/Markdown'
 import { getReport } from '@/lib/microcms'
 
-export const revalidate = 60
+export const dynamic = 'force-dynamic'
 
 const enSt: React.CSSProperties = { fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }
 const jpSt: React.CSSProperties = { fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }

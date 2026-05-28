@@ -1,4 +1,4 @@
-export const revalidate = 60
+export const dynamic = 'force-dynamic'
 
 import PageShell from '@/components/layout/PageShell'
 import ClimbersHero from '@/components/climbers/ClimbersHero'
