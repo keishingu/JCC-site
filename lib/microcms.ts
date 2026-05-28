@@ -12,7 +12,7 @@ export type Climber = MicroCMSListContent & {
   photo?: MicroCMSImage
   birthYear?: number
   location?: string
-  climbingHistory?: { year: string; route: string }[]
+  climbingHistory?: { fieldId: string; year: string; route: string; targetReport?: { id: string; slug: string; title: string } | null }[]
   instagram?: string
   facebook?: string
   active?: boolean

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { Climber } from '@/lib/microcms'
 
 function IgIcon() {
@@ -60,7 +61,11 @@ export default function ClimbersGrid({ members }: { members: Climber[] }) {
                 {m.climbingHistory.map((h) => (
                   <div key={h.year + h.route} style={{ display: 'grid', gridTemplateColumns: '36px 1fr', gap: 8, padding: '6px 0', fontSize: 11, color: '#0a1628', alignItems: 'baseline', borderBottom: '1px solid rgba(10,22,40,0.08)' }}>
                     <span style={{ color: '#3d5070', ...enSt }}>{h.year}</span>
-                    <span style={{ lineHeight: 1.5, ...jpSt }}>{h.route}</span>
+                    {h.targetReport?.slug ? (
+                      <Link href={`/reports/${h.targetReport.slug}`} style={{ lineHeight: 1.5, color: '#0a1628', textDecoration: 'underline', textDecorationColor: 'rgba(10,22,40,0.25)', textUnderlineOffset: 3, ...jpSt }}>{h.route}</Link>
+                    ) : (
+                      <span style={{ lineHeight: 1.5, ...jpSt }}>{h.route}</span>
+                    )}
                   </div>
                 ))}
               </div>
