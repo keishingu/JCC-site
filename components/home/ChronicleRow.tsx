@@ -47,7 +47,7 @@ export default function HomeChronicleRow({ reports }: { reports: Report[] }) {
             <div style={{ marginTop: 6, fontSize: 14.5, lineHeight: 1.45, color: '#0a1628',
               fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }}>{r.title}</div>
             <div style={{ marginTop: 6, fontSize: 11, color: '#3d5070', letterSpacing: '.06em',
-              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.climbers?.name}</div>
+              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.climbers?.map(c => c.name).join('・')}</div>
             <div style={{ marginTop: 2, fontSize: 10.5, color: '#6a7d97', letterSpacing: '.06em',
               fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.titleEn}</div>
           </Link>
