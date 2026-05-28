@@ -36,57 +36,51 @@ export default function ClimbersGrid({ members }: { members: Climber[] }) {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 22 }}>
-        {members.map((m) => {
-          const meta = [m.birthYear && `${m.birthYear}年生まれ`, m.location && `${m.location}在住`].filter(Boolean).join('　')
-          return (
-            <article key={m.id} style={{ position: 'relative', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ aspectRatio: '4/5', overflow: 'hidden', background: '#222' }}>
-                {m.photo && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={m.photo.url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(1) contrast(1.05) brightness(.95)' }}/>
-                )}
-              </div>
-              <div style={{ marginTop: 16, display: 'flex', alignItems: 'baseline', gap: 8, flexWrap: 'wrap' }}>
-                <h3 style={{ margin: 0, fontSize: 18, color: '#0a1628', letterSpacing: '.02em', ...jpSt }}>{m.name}</h3>
-                {m.role && (
-                  <span style={{ fontSize: 9.5, letterSpacing: '.18em', color: '#fff', background: '#16263f', padding: '2px 8px', fontWeight: 500, ...enSt }}>{m.role}</span>
-                )}
-              </div>
-              {m.nameEn && <div style={{ marginTop: 3, fontSize: 11, color: '#3d5070', letterSpacing: '.06em', ...enSt }}>{m.nameEn}</div>}
-              {meta && <div style={{ marginTop: 12, fontSize: 11, color: '#3d5070', lineHeight: 1.7 }}>{meta}</div>}
-              {m.climbingStyle && <div style={{ marginTop: 3, fontSize: 11, color: '#0a1628', lineHeight: 1.7 }}>{m.climbingStyle}</div>}
-
-              {m.climbingHistory && m.climbingHistory.length > 0 && (
-                <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid rgba(10,22,40,0.08)' }}>
-                  <div style={{ fontSize: 9.5, letterSpacing: '.22em', color: '#3d5070', marginBottom: 8, ...enSt }}>主な登攀歴</div>
-                  {m.climbingHistory.map((h) => (
-                    <div key={h.year + h.route} style={{ display: 'grid', gridTemplateColumns: '36px 1fr', gap: 8, padding: '6px 0', fontSize: 11, color: '#0a1628', alignItems: 'baseline', borderBottom: '1px solid rgba(10,22,40,0.08)' }}>
-                      <span style={{ color: '#3d5070', ...enSt }}>{h.year}</span>
-                      <span style={{ lineHeight: 1.5, ...jpSt }}>{h.route}</span>
-                    </div>
-                  ))}
-                </div>
+        {members.map((m) => (
+          <article key={m.id} style={{ position: 'relative', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ aspectRatio: '4/5', overflow: 'hidden', background: '#222' }}>
+              {m.image && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={m.image.url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(1) contrast(1.05) brightness(.95)' }}/>
               )}
+            </div>
+            <div style={{ marginTop: 16 }}>
+              <h3 style={{ margin: 0, fontSize: 18, color: '#0a1628', letterSpacing: '.02em', ...jpSt }}>{m.name}</h3>
+            </div>
+            {m.description && (
+              <div style={{ marginTop: 8, fontSize: 11, color: '#3d5070', lineHeight: 1.7 }}>{m.description}</div>
+            )}
 
-              <div style={{ marginTop: 16, display: 'flex', alignItems: 'center', gap: 8 }}>
-                {m.instagram && (
-                  <a href={m.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"
-                    style={{ width: 32, height: 32, display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                      border: '1px solid rgba(10,22,40,0.08)', color: '#3d5070', background: 'transparent' }}>
-                    <IgIcon/>
-                  </a>
-                )}
-                {m.facebook && (
-                  <a href={m.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"
-                    style={{ width: 32, height: 32, display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                      border: '1px solid rgba(10,22,40,0.08)', color: '#3d5070', background: 'transparent' }}>
-                    <FbIcon/>
-                  </a>
-                )}
+            {m.climbingHistory && m.climbingHistory.length > 0 && (
+              <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid rgba(10,22,40,0.08)' }}>
+                <div style={{ fontSize: 9.5, letterSpacing: '.22em', color: '#3d5070', marginBottom: 8, ...enSt }}>主な登攀歴</div>
+                {m.climbingHistory.map((h) => (
+                  <div key={h.year + h.route} style={{ display: 'grid', gridTemplateColumns: '36px 1fr', gap: 8, padding: '6px 0', fontSize: 11, color: '#0a1628', alignItems: 'baseline', borderBottom: '1px solid rgba(10,22,40,0.08)' }}>
+                    <span style={{ color: '#3d5070', ...enSt }}>{h.year}</span>
+                    <span style={{ lineHeight: 1.5, ...jpSt }}>{h.route}</span>
+                  </div>
+                ))}
               </div>
-            </article>
-          )
-        })}
+            )}
+
+            <div style={{ marginTop: 16, display: 'flex', alignItems: 'center', gap: 8 }}>
+              {m.instagram && (
+                <a href={m.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                  style={{ width: 32, height: 32, display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                    border: '1px solid rgba(10,22,40,0.08)', color: '#3d5070', background: 'transparent' }}>
+                  <IgIcon/>
+                </a>
+              )}
+              {m.facebook && (
+                <a href={m.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+                  style={{ width: 32, height: 32, display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                    border: '1px solid rgba(10,22,40,0.08)', color: '#3d5070', background: 'transparent' }}>
+                  <FbIcon/>
+                </a>
+              )}
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   )
