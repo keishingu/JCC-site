@@ -60,7 +60,7 @@ function NotebookPanel() {
   )
 }
 
-export default function ChronicleDetail() {
+export default function ReportsDetail() {
   return (
     <section style={{ background: 'var(--color-navy)', color: '#fff', display: 'grid', gridTemplateColumns: '1fr 1.25fr', minHeight: 480 }}>
       <div style={{ padding: '40px 50px 50px' }}>

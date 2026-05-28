@@ -16,7 +16,7 @@ function TopoSketch() {
   )
 }
 
-export default function ChronicleGrid({ records }: { records: Report[] }) {
+export default function ReportsGrid({ records }: { records: Report[] }) {
   return (
     <section style={{ background: 'var(--color-cream)', padding: '40px 56px 60px' }}>
       {/* Filter bar */}

@@ -3,7 +3,7 @@ export const dynamic = 'force-dynamic'
 import PageShell from '@/components/layout/PageShell'
 import HomeHero from '@/components/home/Hero'
 import HomePhilosophy from '@/components/home/Philosophy'
-import HomeChronicleRow from '@/components/home/ChronicleRow'
+import HomeReportsRow from '@/components/home/ReportsRow'
 import HomeTriplet from '@/components/home/Triplet'
 import HomeDuo from '@/components/home/Duo'
 import { getReports, getNewsList, getJournalIssues, getSettings } from '@/lib/microcms'
@@ -20,7 +20,7 @@ export default async function HomePage() {
     <PageShell>
       <HomeHero recentNews={news.slice(0, 3)} settings={settings}/>
       <HomePhilosophy settings={settings}/>
-      <HomeChronicleRow reports={reports.slice(0, 5)}/>
+      <HomeReportsRow reports={reports.slice(0, 5)}/>
       <HomeTriplet journals={journals} news={news}/>
       <HomeDuo/>
     </PageShell>

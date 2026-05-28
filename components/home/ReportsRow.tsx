@@ -16,7 +16,7 @@ function TopoSketch() {
   )
 }
 
-export default function HomeChronicleRow({ reports }: { reports: Report[] }) {
+export default function HomeReportsRow({ reports }: { reports: Report[] }) {
   return (
     <section style={{
       background: 'var(--color-cream)', padding: '70px 56px 80px',

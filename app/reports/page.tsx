@@ -1,8 +1,8 @@
 export const dynamic = 'force-dynamic'
 
 import PageShell from '@/components/layout/PageShell'
-import ChronicleHero from '@/components/chronicle/ChronicleHero'
-import ChronicleGrid from '@/components/chronicle/ChronicleGrid'
+import ReportsHero from '@/components/reports/ReportsHero'
+import ReportsGrid from '@/components/reports/ReportsGrid'
 import { getReports } from '@/lib/microcms'
 
 export default async function ReportsPage() {
@@ -10,8 +10,8 @@ export default async function ReportsPage() {
 
   return (
     <PageShell>
-      <ChronicleHero/>
-      <ChronicleGrid records={reports}/>
+      <ReportsHero/>
+      <ReportsGrid records={reports}/>
     </PageShell>
   )
 }
