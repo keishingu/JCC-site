@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import PageShell from '@/components/layout/PageShell'
 import Markdown from '@/components/Markdown'
+import RichText from '@/components/RichText'
 import { getReport } from '@/lib/microcms'
 
 export const dynamic = 'force-dynamic'
@@ -65,7 +66,7 @@ export default async function ReportPage({ params }: { params: Promise<{ slug: s
         {/* Body */}
         {report.body && (
           <div className="prose" style={{ maxWidth: 720, marginBottom: 56 }}>
-            <Markdown content={report.body}/>
+            <RichText content={report.body}/>
           </div>
         )}
 
