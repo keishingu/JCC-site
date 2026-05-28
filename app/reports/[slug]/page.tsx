@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation'
 import PageShell from '@/components/layout/PageShell'
-import Markdown from '@/components/Markdown'
 import RichText from '@/components/RichText'
 import { getReport } from '@/lib/microcms'
 
@@ -51,7 +50,7 @@ export default async function ReportPage({ params }: { params: Promise<{ slug: s
         {/* Lead */}
         {report.lead && (
           <div style={{ maxWidth: 720, marginBottom: 48, fontSize: 16, lineHeight: 2.0, color: '#0a1628', ...jpSt }}>
-            <Markdown content={report.lead}/>
+            <RichText content={report.lead}/>
           </div>
         )}
 
