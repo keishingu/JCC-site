@@ -79,7 +79,7 @@ export default function ChronicleGrid({ records }: { records: Report[] }) {
             <div style={{ marginTop: 5, fontSize: 13.5, lineHeight: 1.4, color: '#0a1628',
               fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }}>{r.title}</div>
             <div style={{ marginTop: 4, fontSize: 10.5, color: '#3d5070',
-              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.climbers}</div>
+              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.climbers?.name}</div>
             <div style={{ marginTop: 1, fontSize: 10, color: '#6a7d97',
               fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.titleEn}</div>
             {r.category && (

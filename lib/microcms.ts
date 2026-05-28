@@ -6,12 +6,25 @@ export const client = createClient({
   apiKey: process.env.MICROCMS_API_KEY || '',
 })
 
+export type Climber = MicroCMSListContent & {
+  name: string
+  nameEn?: string
+  photo?: MicroCMSImage
+  birthYear?: number
+  location?: string
+  climbingHistory?: { year: string; route: string }[]
+  instagram?: string
+  facebook?: string
+  active?: boolean
+  order?: number
+}
+
 export type Report = MicroCMSListContent & {
   title: string
   slug: string
   year: number
   titleEn?: string
-  climbers?: string
+  climbers?: Climber | null
   area?: string
   period?: string
   style?: string
@@ -21,7 +34,7 @@ export type Report = MicroCMSListContent & {
   lead?: string
   body?: string
   topoImage?: MicroCMSImage
-  photos?: { image: MicroCMSImage; caption?: string }[]
+  photos?: { image: MicroCMSImage; caption?: string }[] | null
   activityLog?: { date: string; day: string; record: string; temp?: string; note?: string }[]
   featured?: boolean
 }
@@ -47,19 +60,6 @@ export type JournalIssue = MicroCMSListContent & {
   pageCount?: number
   toc?: { page: string; title: string; author?: string }[]
   photos?: { image: MicroCMSImage; caption?: string }[]
-}
-
-export type Climber = MicroCMSListContent & {
-  name: string
-  nameEn?: string
-  photo?: MicroCMSImage
-  birthYear?: number
-  location?: string
-  climbingHistory?: { year: string; route: string }[]
-  instagram?: string
-  facebook?: string
-  active?: boolean
-  order?: number
 }
 
 const isConfigured = !!(process.env.MICROCMS_SERVICE_DOMAIN && process.env.MICROCMS_API_KEY)
