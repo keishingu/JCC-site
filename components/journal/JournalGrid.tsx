@@ -27,12 +27,12 @@ function JournalCover({ issue }: { issue: JournalIssue }) {
       <div style={{
         position: 'absolute', top: 10, left: 12, color: '#fff', fontWeight: 700, fontSize: 22,
         letterSpacing: '.04em', lineHeight: 1, textShadow: '0 1px 4px rgba(0,0,0,.4)',
-        fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
+        fontFamily: 'var(--font-en-serif)',
       }}>JCC</div>
       <div style={{
         position: 'absolute', top: 12, right: 11, color: 'rgba(255,255,255,.92)', fontSize: 7,
         letterSpacing: '.12em', textAlign: 'right',
-        fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
+        fontFamily: 'var(--font-en-serif)',
       }}>No.{issue.issueNumber}<br/>{issue.season}</div>
     </div>
   )
@@ -42,12 +42,12 @@ const tags = ['冬壁','谷川岳','ヒマラヤ','沢登り','アルパイン',
 
 export default function JournalGrid({ issues }: { issues: JournalIssue[] }) {
   return (
-    <section style={{ background: '#f7f5ee', padding: '36px 56px 50px', display: 'grid', gridTemplateColumns: '180px 1fr', gap: 36 }}>
+    <section style={{ background: 'var(--color-cream)', padding: '36px 56px 50px', display: 'grid', gridTemplateColumns: '180px 1fr', gap: 36 }}>
       {/* Filter rail */}
       <aside>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16, color: '#0a1628' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16, color: 'var(--color-ink)' }}>
           <span style={{ fontSize: 13, letterSpacing: '.22em', fontWeight: 500,
-            fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>FILTER</span>
+            fontFamily: 'var(--font-en-serif)' }}>FILTER</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
             <path d="M3 6h18M6 12h12M10 18h4"/>
           </svg>
@@ -56,28 +56,28 @@ export default function JournalGrid({ issues }: { issues: JournalIssue[] }) {
           <div key={label} style={{
             display: 'flex', justifyContent: 'space-between', alignItems: 'center',
             padding: '12px 10px', borderBottom: '1px solid rgba(10,22,40,0.08)',
-            fontSize: 12.5, color: '#0a1628',
-            fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif',
+            fontSize: 12.5, color: 'var(--color-ink)',
+            fontFamily: 'var(--font-jp)',
           }}>
             {label}
-            <svg width="9" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#3d5070" strokeWidth="1.2"/></svg>
+            <svg width="9" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="var(--color-slate)" strokeWidth="1.2"/></svg>
           </div>
         ))}
-        <div style={{ marginTop: 22, fontSize: 12.5, color: '#0a1628', marginBottom: 10,
-          fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }}>キーワード</div>
+        <div style={{ marginTop: 22, fontSize: 12.5, color: 'var(--color-ink)', marginBottom: 10,
+          fontFamily: 'var(--font-jp)' }}>キーワード</div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
           {tags.map((t) => (
             <span key={t} style={{
               fontSize: 11, padding: '4px 10px', border: '1px solid rgba(10,22,40,0.08)',
-              color: '#3d5070', background: 'rgba(255,255,255,.4)',
+              color: 'var(--color-slate)', background: 'rgba(255,255,255,.4)',
             }}>{t}</span>
           ))}
         </div>
         <button style={{
           marginTop: 22, background: 'transparent', border: 'none', cursor: 'pointer',
-          fontSize: 11, letterSpacing: '.16em', color: '#3d5070',
+          fontSize: 11, letterSpacing: '.16em', color: 'var(--color-slate)',
           display: 'inline-flex', alignItems: 'center', gap: 8, padding: 0,
-          fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
+          fontFamily: 'var(--font-en-serif)',
         }}>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
             <path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/>
@@ -89,17 +89,17 @@ export default function JournalGrid({ issues }: { issues: JournalIssue[] }) {
       {/* Covers grid */}
       <div>
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 18 }}>
-          <div style={{ fontSize: 15, color: '#0a1628', fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }}>
-            全 <span style={{ fontSize: 22, fontWeight: 500, margin: '0 4px', fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{issues.length}</span> 冊
+          <div style={{ fontSize: 15, color: 'var(--color-ink)', fontFamily: 'var(--font-jp)' }}>
+            全 <span style={{ fontSize: 22, fontWeight: 500, margin: '0 4px', fontFamily: 'var(--font-en-serif)' }}>{issues.length}</span> 冊
           </div>
-          <div style={{ display: 'flex', gap: 16, fontSize: 11, color: '#3d5070' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#0a1628', fontWeight: 500,
-              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>
+          <div style={{ display: 'flex', gap: 16, fontSize: 11, color: 'var(--color-slate)' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: 'var(--color-ink)', fontWeight: 500,
+              fontFamily: 'var(--font-en-serif)' }}>
               <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6"/><rect x="9" y="1" width="6" height="6"/><rect x="1" y="9" width="6" height="6"/><rect x="9" y="9" width="6" height="6"/></svg>
               Grid
             </span>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6,
-              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>
+              fontFamily: 'var(--font-en-serif)' }}>
               <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="2" width="14" height="2"/><rect x="1" y="7" width="14" height="2"/><rect x="1" y="12" width="14" height="2"/></svg>
               List
             </span>
@@ -109,18 +109,18 @@ export default function JournalGrid({ issues }: { issues: JournalIssue[] }) {
           {issues.map((issue) => (
             <div key={issue.id}>
               <JournalCover issue={issue}/>
-              <div style={{ marginTop: 10, fontSize: 13, color: '#0a1628', fontWeight: 500,
-                fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>No.{issue.issueNumber}</div>
-              <div style={{ fontSize: 11.5, color: '#3d5070' }}>{issue.season}</div>
+              <div style={{ marginTop: 10, fontSize: 13, color: 'var(--color-ink)', fontWeight: 500,
+                fontFamily: 'var(--font-en-serif)' }}>No.{issue.issueNumber}</div>
+              <div style={{ fontSize: 11.5, color: 'var(--color-slate)' }}>{issue.season}</div>
             </div>
           ))}
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: 30 }}>
           <button style={{
             background: 'transparent', border: '1px solid rgba(10,22,40,0.08)',
-            padding: '12px 38px', fontSize: 13, color: '#0a1628',
+            padding: '12px 38px', fontSize: 13, color: 'var(--color-ink)',
             display: 'inline-flex', alignItems: 'center', gap: 14, cursor: 'pointer',
-            fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif',
+            fontFamily: 'var(--font-jp)',
           }}>
             さらに読み込む
             <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.4"/></svg>

@@ -6,7 +6,7 @@ export default function Sidebar() {
       className="flex-none flex flex-col relative border-r"
       style={{
         width: 116,
-        background: '#16263f',
+        background: 'var(--color-navy)',
         color: '#fff',
         padding: '28px 22px',
         borderColor: 'rgba(255,255,255,0.04)',
@@ -14,8 +14,8 @@ export default function Sidebar() {
     >
       {/* Logo */}
       <Link href="/" className="block mb-9 no-underline" style={{ color: 'inherit' }}>
-        <div style={{ fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif', fontWeight: 700, fontSize: 26, letterSpacing: '.04em', lineHeight: 1 }}>JCC</div>
-        <div style={{ fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif', fontSize: 8.5, lineHeight: 1.35, marginTop: 8, letterSpacing: '.14em', color: 'rgba(255,255,255,.72)' }}>
+        <div style={{ fontFamily: 'var(--font-en-sans)', fontWeight: 600, fontSize: 26, letterSpacing: '.04em', lineHeight: 1 }}>JCC</div>
+        <div style={{ fontFamily: 'var(--font-en-sans)', fontSize: 8.5, lineHeight: 1.35, marginTop: 8, letterSpacing: '.14em', color: 'rgba(255,255,255,.72)' }}>
           JAPAN<br/>CLIMBERS<br/>CLUB
         </div>
       </Link>
@@ -23,7 +23,7 @@ export default function Sidebar() {
       {/* Bottom */}
       <div style={{ marginTop: 'auto' }}>
         <div style={{
-          fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
+          fontFamily: 'var(--font-en-sans)',
           fontSize: 10, letterSpacing: '.22em', color: 'rgba(255,255,255,.42)',
           display: 'flex', alignItems: 'center', gap: 6,
         }}>

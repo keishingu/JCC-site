@@ -16,20 +16,20 @@ function formatDate(iso?: string) {
   return iso.slice(0, 10).replace(/-/g, '.')
 }
 
-const enSt: React.CSSProperties = { fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }
-const jpSt: React.CSSProperties = { fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }
+const enSt: React.CSSProperties = { fontFamily: 'var(--font-en-serif)' }
+const jpSt: React.CSSProperties = { fontFamily: 'var(--font-jp)' }
 
 export default function NewsAnnouncements({ items }: { items: NewsItem[] }) {
   return (
-    <section style={{ background: '#f3f1ea', padding: '40px 56px 36px', borderTop: '1px solid rgba(10,22,40,0.08)' }}>
+    <section style={{ background: 'var(--color-paper)', padding: '40px 56px 36px', borderTop: '1px solid rgba(10,22,40,0.08)' }}>
       <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: 36, alignItems: 'start' }}>
         <div>
-          <div style={{ marginBottom: 14, fontSize: 12, letterSpacing: '.22em', color: '#3d5070', fontWeight: 600, ...enSt }}>
-            <span style={{ display: 'inline-block', width: 1, height: 12, background: '#16263f', verticalAlign: 'middle', marginRight: 8 }}/>
+          <div style={{ marginBottom: 14, fontSize: 12, letterSpacing: '.22em', color: 'var(--color-slate)', fontWeight: 600, ...enSt }}>
+            <span style={{ display: 'inline-block', width: 1, height: 12, background: 'var(--color-navy)', verticalAlign: 'middle', marginRight: 8 }}/>
             ANNOUNCEMENTS
           </div>
-          <div style={{ fontSize: 20, lineHeight: 1.5, color: '#0a1628', ...jpSt }}>お知らせ</div>
-          <div style={{ marginTop: 8, fontSize: 11, color: '#3d5070', lineHeight: 1.85 }}>
+          <div style={{ fontSize: 20, lineHeight: 1.5, color: 'var(--color-ink)', ...jpSt }}>お知らせ</div>
+          <div style={{ marginTop: 8, fontSize: 11, color: 'var(--color-slate)', lineHeight: 1.85 }}>
             会から会員・読者へ向けた<br/>公式の更新情報。
           </div>
         </div>
@@ -39,14 +39,14 @@ export default function NewsAnnouncements({ items }: { items: NewsItem[] }) {
             const date = formatDate(n.publishedAt)
             const inner = (
               <>
-                <span style={{ fontSize: 11, letterSpacing: '.06em', color: '#3d5070', ...enSt }}>{date}</span>
+                <span style={{ fontSize: 11, letterSpacing: '.06em', color: 'var(--color-slate)', ...enSt }}>{date}</span>
                 <span style={{
                   fontSize: 10.5, letterSpacing: '.04em',
-                  color: n.tag === 'recruit' ? '#16263f' : '#0a1628',
+                  color: n.tag === 'recruit' ? 'var(--color-navy)' : 'var(--color-ink)',
                   border: '1px solid currentColor', padding: '3px 8px',
                   justifySelf: 'start', opacity: .8, ...jpSt,
                 }}>{label}</span>
-                <span style={{ fontSize: 14, color: '#0a1628', ...jpSt }}>{n.title}</span>
+                <span style={{ fontSize: 14, color: 'var(--color-ink)', ...jpSt }}>{n.title}</span>
               </>
             )
             const rowStyle: React.CSSProperties = {

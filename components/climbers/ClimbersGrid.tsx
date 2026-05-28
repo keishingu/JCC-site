@@ -19,19 +19,19 @@ function FbIcon() {
   )
 }
 
-const enSt: React.CSSProperties = { fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }
-const jpSt: React.CSSProperties = { fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }
+const enSt: React.CSSProperties = { fontFamily: 'var(--font-en-serif)' }
+const jpSt: React.CSSProperties = { fontFamily: 'var(--font-jp)' }
 
 export default function ClimbersGrid({ members }: { members: Climber[] }) {
   return (
     <section style={{ background: '#fff', padding: '50px 56px 60px' }}>
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 28 }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
-          <h2 style={{ margin: 0, fontSize: 22, letterSpacing: '.12em', fontWeight: 500, color: '#0a1628', ...enSt }}>CURRENT CLIMBERS</h2>
-          <span style={{ fontSize: 13, color: '#3d5070', ...jpSt }}>現役会員</span>
+          <h2 style={{ margin: 0, fontSize: 22, letterSpacing: '.12em', fontWeight: 500, color: 'var(--color-ink)', ...enSt }}>CURRENT CLIMBERS</h2>
+          <span style={{ fontSize: 13, color: 'var(--color-slate)', ...jpSt }}>現役会員</span>
         </div>
-        <div style={{ fontSize: 11, letterSpacing: '.18em', color: '#3d5070', display: 'inline-flex', alignItems: 'baseline', gap: 6, ...enSt }}>
-          <span style={{ fontSize: 22, color: '#0a1628', fontWeight: 500 }}>{String(members.length).padStart(2, '0')}</span>
+        <div style={{ fontSize: 11, letterSpacing: '.18em', color: 'var(--color-slate)', display: 'inline-flex', alignItems: 'baseline', gap: 6, ...enSt }}>
+          <span style={{ fontSize: 22, color: 'var(--color-ink)', fontWeight: 500 }}>{String(members.length).padStart(2, '0')}</span>
           <span>CLIMBERS</span>
         </div>
       </div>
@@ -46,23 +46,23 @@ export default function ClimbersGrid({ members }: { members: Climber[] }) {
               )}
             </div>
             <div style={{ marginTop: 16, display: 'flex', alignItems: 'baseline', gap: 8, flexWrap: 'wrap' }}>
-              <h3 style={{ margin: 0, fontSize: 18, color: '#0a1628', letterSpacing: '.02em', ...jpSt }}>{m.name}</h3>
+              <h3 style={{ margin: 0, fontSize: 18, color: 'var(--color-ink)', letterSpacing: '.02em', ...jpSt }}>{m.name}</h3>
             </div>
-            {m.nameEn && <div style={{ marginTop: 3, fontSize: 11, color: '#3d5070', letterSpacing: '.06em', ...enSt }}>{m.nameEn}</div>}
+            {m.nameEn && <div style={{ marginTop: 3, fontSize: 11, color: 'var(--color-slate)', letterSpacing: '.06em', ...enSt }}>{m.nameEn}</div>}
             {(m.birthYear || m.location) && (
-              <div style={{ marginTop: 8, fontSize: 11, color: '#3d5070', lineHeight: 1.7 }}>
+              <div style={{ marginTop: 8, fontSize: 11, color: 'var(--color-slate)', lineHeight: 1.7 }}>
                 {[m.birthYear && `${m.birthYear}年生まれ`, m.location && `${m.location}在住`].filter(Boolean).join('　')}
               </div>
             )}
 
             {m.climbingHistory && m.climbingHistory.length > 0 && (
               <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid rgba(10,22,40,0.08)' }}>
-                <div style={{ fontSize: 9.5, letterSpacing: '.22em', color: '#3d5070', marginBottom: 8, ...enSt }}>主な登攀歴</div>
+                <div style={{ fontSize: 9.5, letterSpacing: '.22em', color: 'var(--color-slate)', marginBottom: 8, ...enSt }}>主な登攀歴</div>
                 {m.climbingHistory.map((h) => (
-                  <div key={h.year + h.route} style={{ display: 'grid', gridTemplateColumns: '36px 1fr', gap: 8, padding: '6px 0', fontSize: 11, color: '#0a1628', alignItems: 'baseline', borderBottom: '1px solid rgba(10,22,40,0.08)' }}>
-                    <span style={{ color: '#3d5070', ...enSt }}>{h.year}</span>
+                  <div key={h.year + h.route} style={{ display: 'grid', gridTemplateColumns: '36px 1fr', gap: 8, padding: '6px 0', fontSize: 11, color: 'var(--color-ink)', alignItems: 'baseline', borderBottom: '1px solid rgba(10,22,40,0.08)' }}>
+                    <span style={{ color: 'var(--color-slate)', ...enSt }}>{h.year}</span>
                     {h.targetReport?.slug ? (
-                      <Link href={`/reports/${h.targetReport.slug}`} style={{ lineHeight: 1.5, color: '#0a1628', textDecoration: 'none', ...jpSt }}>{h.route}</Link>
+                      <Link href={`/reports/${h.targetReport.slug}`} style={{ lineHeight: 1.5, color: 'var(--color-ink)', textDecoration: 'none', ...jpSt }}>{h.route}</Link>
                     ) : (
                       <span style={{ lineHeight: 1.5, ...jpSt }}>{h.route}</span>
                     )}
@@ -75,14 +75,14 @@ export default function ClimbersGrid({ members }: { members: Climber[] }) {
               {m.instagram && (
                 <a href={m.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"
                   style={{ width: 32, height: 32, display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                    border: '1px solid rgba(10,22,40,0.08)', color: '#3d5070', background: 'transparent' }}>
+                    border: '1px solid rgba(10,22,40,0.08)', color: 'var(--color-slate)', background: 'transparent' }}>
                   <IgIcon/>
                 </a>
               )}
               {m.facebook && (
                 <a href={m.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"
                   style={{ width: 32, height: 32, display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                    border: '1px solid rgba(10,22,40,0.08)', color: '#3d5070', background: 'transparent' }}>
+                    border: '1px solid rgba(10,22,40,0.08)', color: 'var(--color-slate)', background: 'transparent' }}>
                   <FbIcon/>
                 </a>
               )}

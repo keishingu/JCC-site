@@ -19,8 +19,8 @@ interface TopNavProps {
 }
 
 export default function TopNav({ active, onWhite = false }: TopNavProps) {
-  const text    = onWhite ? '#0a1628' : '#fff'
-  const dim     = onWhite ? '#3d5070' : 'rgba(255,255,255,.7)'
+  const text     = onWhite ? 'var(--color-ink)' : '#fff'
+  const dim      = onWhite ? 'var(--color-slate)' : 'rgba(255,255,255,.7)'
   const disabled = onWhite ? 'rgba(10,22,40,.35)' : 'rgba(255,255,255,.4)'
 
   return (
@@ -34,8 +34,8 @@ export default function TopNav({ active, onWhite = false }: TopNavProps) {
         return href ? (
           <Link key={label} href={href}
             style={{
-              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
-              fontSize: 11.5, letterSpacing: '.18em', fontWeight: isActive ? 600 : 400,
+              fontFamily: 'var(--font-en-sans)',
+              fontSize: 11.5, letterSpacing: '.18em', fontWeight: isActive ? 500 : 400,
               color: isActive ? text : dim,
               textDecoration: 'none', position: 'relative', paddingBottom: 4,
               whiteSpace: 'nowrap',
@@ -48,7 +48,7 @@ export default function TopNav({ active, onWhite = false }: TopNavProps) {
           </Link>
         ) : (
           <span key={label} style={{
-            fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
+            fontFamily: 'var(--font-en-sans)',
             fontSize: 11.5, letterSpacing: '.18em', fontWeight: 400,
             color: disabled, whiteSpace: 'nowrap', cursor: 'not-allowed',
           }}>

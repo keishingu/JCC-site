@@ -5,8 +5,8 @@ import { getReport } from '@/lib/microcms'
 
 export const dynamic = 'force-dynamic'
 
-const enSt: React.CSSProperties = { fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }
-const jpSt: React.CSSProperties = { fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }
+const enSt: React.CSSProperties = { fontFamily: 'var(--font-en-serif)' }
+const jpSt: React.CSSProperties = { fontFamily: 'var(--font-jp)' }
 
 export default async function ReportPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
@@ -29,7 +29,7 @@ export default async function ReportPage({ params }: { params: Promise<{ slug: s
         </div>
       )}
 
-      <article style={{ background: '#f7f5ee', padding: '56px 56px 80px' }}>
+      <article style={{ background: 'var(--color-cream)', padding: '56px 56px 80px' }}>
         {/* Meta */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 24, paddingBottom: 36, borderBottom: '1px solid rgba(10,22,40,0.08)', marginBottom: 48 }}>
           {[
@@ -41,15 +41,15 @@ export default async function ReportPage({ params }: { params: Promise<{ slug: s
             ['グレード', report.grade],
           ].filter(([, v]) => v).map(([label, value]) => (
             <div key={label}>
-              <div style={{ fontSize: 10, letterSpacing: '.22em', color: '#3d5070', marginBottom: 6, ...enSt }}>{label}</div>
-              <div style={{ fontSize: 14, color: '#0a1628', ...jpSt }}>{value}</div>
+              <div style={{ fontSize: 10, letterSpacing: '.22em', color: 'var(--color-slate)', marginBottom: 6, ...enSt }}>{label}</div>
+              <div style={{ fontSize: 14, color: 'var(--color-ink)', ...jpSt }}>{value}</div>
             </div>
           ))}
         </div>
 
         {/* Lead */}
         {report.lead && (
-          <div style={{ maxWidth: 720, marginBottom: 48, fontSize: 16, lineHeight: 2.0, color: '#0a1628', ...jpSt }}>
+          <div style={{ maxWidth: 720, marginBottom: 48, fontSize: 16, lineHeight: 2.0, color: 'var(--color-ink)', ...jpSt }}>
             <RichText content={report.lead}/>
           </div>
         )}
@@ -68,14 +68,14 @@ export default async function ReportPage({ params }: { params: Promise<{ slug: s
             <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
               {report.courseTime && (
                 <div>
-                  <div style={{ fontSize: 11, letterSpacing: '.22em', color: '#3d5070', marginBottom: 10, ...enSt }}>コースタイム</div>
-                  <div style={{ fontSize: 13, color: '#0a1628', lineHeight: 1.9, whiteSpace: 'pre-wrap', ...jpSt }}>{report.courseTime}</div>
+                  <div style={{ fontSize: 11, letterSpacing: '.22em', color: 'var(--color-slate)', marginBottom: 10, ...enSt }}>コースタイム</div>
+                  <div style={{ fontSize: 13, color: 'var(--color-ink)', lineHeight: 1.9, whiteSpace: 'pre-wrap', ...jpSt }}>{report.courseTime}</div>
                 </div>
               )}
               {report.gear && (
                 <div>
-                  <div style={{ fontSize: 11, letterSpacing: '.22em', color: '#3d5070', marginBottom: 10, ...enSt }}>使用ギア</div>
-                  <div style={{ fontSize: 13, color: '#0a1628', lineHeight: 1.9, whiteSpace: 'pre-wrap', ...jpSt }}>{report.gear}</div>
+                  <div style={{ fontSize: 11, letterSpacing: '.22em', color: 'var(--color-slate)', marginBottom: 10, ...enSt }}>使用ギア</div>
+                  <div style={{ fontSize: 13, color: 'var(--color-ink)', lineHeight: 1.9, whiteSpace: 'pre-wrap', ...jpSt }}>{report.gear}</div>
                 </div>
               )}
             </div>
@@ -92,12 +92,12 @@ export default async function ReportPage({ params }: { params: Promise<{ slug: s
         {/* Activity log */}
         {report.activityLog && report.activityLog.length > 0 && (
           <div style={{ marginBottom: 56 }}>
-            <h2 style={{ fontSize: 13, letterSpacing: '.22em', color: '#3d5070', fontWeight: 600, marginBottom: 16, ...enSt }}>行動記録</h2>
+            <h2 style={{ fontSize: 13, letterSpacing: '.22em', color: 'var(--color-slate)', fontWeight: 600, marginBottom: 16, ...enSt }}>行動記録</h2>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid rgba(10,22,40,0.12)' }}>
                   {['日付','日数','記録','気温','備考'].map((h) => (
-                    <th key={h} style={{ textAlign: 'left', padding: '8px 12px', color: '#3d5070', fontWeight: 500, ...jpSt }}>{h}</th>
+                    <th key={h} style={{ textAlign: 'left', padding: '8px 12px', color: 'var(--color-slate)', fontWeight: 500, ...jpSt }}>{h}</th>
                   ))}
                 </tr>
               </thead>
@@ -105,7 +105,7 @@ export default async function ReportPage({ params }: { params: Promise<{ slug: s
                 {report.activityLog.map((row, i) => (
                   <tr key={i} style={{ borderBottom: '1px solid rgba(10,22,40,0.06)' }}>
                     {[row.date, row.day, row.record, row.temp, row.note].map((v, j) => (
-                      <td key={j} style={{ padding: '10px 12px', color: '#0a1628', lineHeight: 1.6, ...jpSt }}>{v}</td>
+                      <td key={j} style={{ padding: '10px 12px', color: 'var(--color-ink)', lineHeight: 1.6, ...jpSt }}>{v}</td>
                     ))}
                   </tr>
                 ))}
@@ -117,13 +117,13 @@ export default async function ReportPage({ params }: { params: Promise<{ slug: s
         {/* Photos */}
         {report.photos && report.photos.length > 0 && (
           <div>
-            <h2 style={{ fontSize: 13, letterSpacing: '.22em', color: '#3d5070', fontWeight: 600, marginBottom: 16, ...enSt }}>記録写真</h2>
+            <h2 style={{ fontSize: 13, letterSpacing: '.22em', color: 'var(--color-slate)', fontWeight: 600, marginBottom: 16, ...enSt }}>記録写真</h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
               {report.photos.map((p, i) => (
                 <div key={i}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={p.image.url} alt={p.caption ?? ''} style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', filter: 'saturate(.7)' }}/>
-                  {p.caption && <div style={{ marginTop: 6, fontSize: 11, color: '#3d5070', ...jpSt }}>{p.caption}</div>}
+                  {p.caption && <div style={{ marginTop: 6, fontSize: 11, color: 'var(--color-slate)', ...jpSt }}>{p.caption}</div>}
                 </div>
               ))}
             </div>

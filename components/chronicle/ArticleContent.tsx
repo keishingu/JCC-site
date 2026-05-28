@@ -87,8 +87,8 @@ const relatedRecords = [
   { yr: '1977', jp: '剱岳 北壁 冬期単独行',        author: 'J. Furukawa', en: 'Mt. Tsurugi North Face',     img: photos.cirqueDusk },
 ]
 
-const enSt: React.CSSProperties = { fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }
-const jpSt: React.CSSProperties = { fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }
+const enSt: React.CSSProperties = { fontFamily: 'var(--font-en-serif)' }
+const jpSt: React.CSSProperties = { fontFamily: 'var(--font-jp)' }
 
 export default function ArticleContent() {
   return (
@@ -117,7 +117,7 @@ export default function ArticleContent() {
       </section>
 
       {/* META STRIP */}
-      <section style={{ background: '#16263f', color: '#fff', padding: '26px 56px', display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', gap: 26 }}>
+      <section style={{ background: 'var(--color-navy)', color: '#fff', padding: '26px 56px', display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', gap: 26 }}>
         {[
           ['CLIMBERS',  '笹木 克彦 / 佐藤 翔'],
           ['AREA',      'グリーンランド・ポーラーサーカス'],
@@ -136,16 +136,16 @@ export default function ArticleContent() {
       {/* SECTION 01 — はじめに */}
       <section style={{ padding: '70px 56px 50px', display: 'grid', gridTemplateColumns: '180px 1fr', gap: 40 }}>
         <div>
-          <div style={{ fontSize: 11, letterSpacing: '.22em', color: '#3d5070', ...enSt }}>01</div>
-          <div style={{ marginTop: 6, fontSize: 14, color: '#0a1628', ...jpSt }}>はじめに</div>
-          <div style={{ marginTop: 18, height: 1, width: 36, background: '#3d5070' }}/>
-          <div style={{ marginTop: 16, fontSize: 11, letterSpacing: '.14em', color: '#3d5070', lineHeight: 1.8, ...enSt }}>by K. Sasaki<br/>April 2025</div>
+          <div style={{ fontSize: 11, letterSpacing: '.22em', color: 'var(--color-slate)', ...enSt }}>01</div>
+          <div style={{ marginTop: 6, fontSize: 14, color: 'var(--color-ink)', ...jpSt }}>はじめに</div>
+          <div style={{ marginTop: 18, height: 1, width: 36, background: 'var(--color-slate)' }}/>
+          <div style={{ marginTop: 16, fontSize: 11, letterSpacing: '.14em', color: 'var(--color-slate)', lineHeight: 1.8, ...enSt }}>by K. Sasaki<br/>April 2025</div>
         </div>
         <div style={{ maxWidth: 720 }}>
-          <p style={{ margin: 0, fontSize: 22, lineHeight: 1.85, letterSpacing: '.04em', color: '#0a1628', ...jpSt }}>
+          <p style={{ margin: 0, fontSize: 22, lineHeight: 1.85, letterSpacing: '.04em', color: 'var(--color-ink)', ...jpSt }}>
             グリーンランド東岸、シャノン島にそびえるポーラーサーカスは、その名の通り、氷壁と岩壁が馬蹄形に連なる壮大なサーカス状の地形である。
           </p>
-          <p style={{ marginTop: 26, fontSize: 13.5, lineHeight: 2.05, color: '#0a1628' }}>
+          <p style={{ marginTop: 26, fontSize: 13.5, lineHeight: 2.05, color: 'var(--color-ink)' }}>
             私たちはその中の一角にあるピークを目指し、3週間にわたる遠征を行った。<br/>
             長年構想を温めてきたこのルートに、ようやく一歩を踏み出せたのは、いくつもの偶然と、共に行ける仲間がいたという事実による。<br/>
             以下の記録は、登攀そのものよりも、その手前にある「どう向き合ったか」に重きを置いて書かれている。
@@ -156,18 +156,18 @@ export default function ArticleContent() {
       {/* SECTION 02 — アプローチ */}
       <section style={{ padding: '0 56px 70px', display: 'grid', gridTemplateColumns: '180px 1fr', gap: 40 }}>
         <div>
-          <div style={{ fontSize: 11, letterSpacing: '.22em', color: '#3d5070', ...enSt }}>02</div>
-          <div style={{ marginTop: 6, fontSize: 14, color: '#0a1628', ...jpSt }}>アプローチ</div>
-          <div style={{ marginTop: 18, height: 1, width: 36, background: '#3d5070' }}/>
+          <div style={{ fontSize: 11, letterSpacing: '.22em', color: 'var(--color-slate)', ...enSt }}>02</div>
+          <div style={{ marginTop: 6, fontSize: 14, color: 'var(--color-ink)', ...jpSt }}>アプローチ</div>
+          <div style={{ marginTop: 18, height: 1, width: 36, background: 'var(--color-slate)' }}/>
         </div>
         <div style={{ maxWidth: 920 }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28, alignItems: 'start' }}>
-            <p style={{ margin: 0, fontSize: 13.5, lineHeight: 2.05, color: '#0a1628' }}>
+            <p style={{ margin: 0, fontSize: 13.5, lineHeight: 2.05, color: 'var(--color-ink)' }}>
               アイスランドからチャーター機でメスタースヴィッグへ。<br/>
               そこからスノーモービルで2日かけてベースキャンプ予定地まで物資を運ぶ。最低気温は−34℃。風はなく、夜空には強くオーロラが立つ。<br/><br/>
               初日、フィヨルドを渡る氷の上でガスがかかった。コンパス確認、GPS、足元の氷の音。
             </p>
-            <p style={{ margin: 0, fontSize: 13.5, lineHeight: 2.05, color: '#0a1628' }}>
+            <p style={{ margin: 0, fontSize: 13.5, lineHeight: 2.05, color: 'var(--color-ink)' }}>
               ベースキャンプ到着は出発から5日後。<br/>
               風の通り道を避けて、岩陰にツェルトを構築。ストーブを2台体制で運用し、燃料の消費を慎重に計算する。<br/><br/>
               天候待ちが3日続いた。テントの中で、地形図と昨日の偵察の記憶をつなぎ合わせ、ルートの中で迷いそうな箇所を一つひとつ潰していく。
@@ -176,7 +176,7 @@ export default function ArticleContent() {
           <div style={{ marginTop: 22, overflow: 'hidden' }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={photos.cirqueDusk} alt="" style={{ width: '100%', height: 460, objectFit: 'cover', filter: 'saturate(.7) contrast(1.0)' }}/>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 10, fontSize: 10.5, color: '#3d5070', ...enSt }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 10, fontSize: 10.5, color: 'var(--color-slate)', ...enSt }}>
               <span>FIG.01 — Polar Circus / North Cwm, approach view</span>
               <span>March 17, 2025  ·  −28°C</span>
             </div>
@@ -187,12 +187,12 @@ export default function ArticleContent() {
       {/* PULL QUOTE */}
       <section style={{ padding: '20px 56px 70px' }}>
         <blockquote style={{ margin: 0, padding: '0 80px', position: 'relative', maxWidth: 1000 }}>
-          <div style={{ fontSize: 30, lineHeight: 1.75, letterSpacing: '.04em', color: '#0a1628', ...jpSt }}>
+          <div style={{ fontSize: 30, lineHeight: 1.75, letterSpacing: '.04em', color: 'var(--color-ink)', ...jpSt }}>
             「行くか、戻るか。<br/>
             山では常にそのどちらかが正しい。<br/>
             そして、どちらを選んでもいいということは、ほとんどない。」
           </div>
-          <div style={{ marginTop: 22, fontSize: 11, letterSpacing: '.2em', color: '#3d5070', ...enSt }}>
+          <div style={{ marginTop: 22, fontSize: 11, letterSpacing: '.2em', color: 'var(--color-slate)', ...enSt }}>
             — Day 14, Base Camp, Field Notes
           </div>
           <span style={{ position: 'absolute', left: 0, top: -10, fontFamily: 'Cormorant Garamond, serif', fontSize: 80, color: '#c9d6e2', lineHeight: 1 }}>&ldquo;</span>
@@ -200,14 +200,14 @@ export default function ArticleContent() {
       </section>
 
       {/* SECTION 03 — 登攀 */}
-      <section style={{ padding: '0 56px 70px', display: 'grid', gridTemplateColumns: '180px 1fr', gap: 40, background: '#f7f5ee' }}>
+      <section style={{ padding: '0 56px 70px', display: 'grid', gridTemplateColumns: '180px 1fr', gap: 40, background: 'var(--color-cream)' }}>
         <div style={{ paddingTop: 60 }}>
-          <div style={{ fontSize: 11, letterSpacing: '.22em', color: '#3d5070', ...enSt }}>03</div>
-          <div style={{ marginTop: 6, fontSize: 14, color: '#0a1628', ...jpSt }}>登攀</div>
-          <div style={{ marginTop: 18, height: 1, width: 36, background: '#3d5070' }}/>
+          <div style={{ fontSize: 11, letterSpacing: '.22em', color: 'var(--color-slate)', ...enSt }}>03</div>
+          <div style={{ marginTop: 6, fontSize: 14, color: 'var(--color-ink)', ...jpSt }}>登攀</div>
+          <div style={{ marginTop: 18, height: 1, width: 36, background: 'var(--color-slate)' }}/>
         </div>
         <div style={{ maxWidth: 920, paddingTop: 60, paddingBottom: 10 }}>
-          <p style={{ margin: 0, fontSize: 13.5, lineHeight: 2.05, color: '#0a1628' }}>
+          <p style={{ margin: 0, fontSize: 13.5, lineHeight: 2.05, color: 'var(--color-ink)' }}>
             壁の取り付きまではアプローチ氷河を6時間。<br/>
             P1〜P3は雪稜と氷瀑のミックス。氷の質は脆く、薄い箇所では支点が極端に取りづらい。<br/><br/>
             核心はP5。長さ60m、平均80度、最大90度のWI5。氷の中央部に走る縦のクラックに沿ってラインを取った。<br/>
@@ -218,19 +218,19 @@ export default function ArticleContent() {
             <div style={{ overflow: 'hidden' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={photos.iceSilhouette} alt="" style={{ width: '100%', height: 360, objectFit: 'cover', filter: 'saturate(.78) contrast(1.03)' }}/>
-              <div style={{ marginTop: 8, fontSize: 10.5, color: '#3d5070', letterSpacing: '.08em', ...enSt }}>FIG.02 — Pitch 5, crux ice column (WI5)</div>
+              <div style={{ marginTop: 8, fontSize: 10.5, color: 'var(--color-slate)', letterSpacing: '.08em', ...enSt }}>FIG.02 — Pitch 5, crux ice column (WI5)</div>
             </div>
             <div style={{ overflow: 'hidden' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={photos.icefallWall} alt="" style={{ width: '100%', height: 360, objectFit: 'cover', filter: 'saturate(.78) contrast(1.03)' }}/>
-              <div style={{ marginTop: 8, fontSize: 10.5, color: '#3d5070', letterSpacing: '.08em', ...enSt }}>FIG.03 — Upper section, day 19</div>
+              <div style={{ marginTop: 8, fontSize: 10.5, color: 'var(--color-slate)', letterSpacing: '.08em', ...enSt }}>FIG.03 — Upper section, day 19</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* SECTION 04 — ルート図・現地メモ */}
-      <section style={{ background: '#16263f', color: '#fff', padding: '60px 56px 70px', display: 'grid', gridTemplateColumns: '180px 1fr', gap: 40 }}>
+      <section style={{ background: 'var(--color-navy)', color: '#fff', padding: '60px 56px 70px', display: 'grid', gridTemplateColumns: '180px 1fr', gap: 40 }}>
         <div>
           <div style={{ fontSize: 11, letterSpacing: '.22em', color: 'rgba(255,255,255,.55)', ...enSt }}>04</div>
           <div style={{ marginTop: 6, fontSize: 14, color: '#fff', ...jpSt }}>ルート図・現地メモ</div>
@@ -254,14 +254,14 @@ export default function ArticleContent() {
       {/* SECTION 05 — 技術情報・コンディション */}
       <section style={{ padding: '70px 56px 60px', display: 'grid', gridTemplateColumns: '180px 1fr', gap: 40 }}>
         <div>
-          <div style={{ fontSize: 11, letterSpacing: '.22em', color: '#3d5070', ...enSt }}>05</div>
-          <div style={{ marginTop: 6, fontSize: 14, color: '#0a1628', ...jpSt }}>技術情報・コンディション</div>
-          <div style={{ marginTop: 18, height: 1, width: 36, background: '#3d5070' }}/>
+          <div style={{ fontSize: 11, letterSpacing: '.22em', color: 'var(--color-slate)', ...enSt }}>05</div>
+          <div style={{ marginTop: 6, fontSize: 14, color: 'var(--color-ink)', ...jpSt }}>技術情報・コンディション</div>
+          <div style={{ marginTop: 18, height: 1, width: 36, background: 'var(--color-slate)' }}/>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28 }}>
           {/* Technical */}
           <div style={{ background: '#fff', border: '1px solid rgba(10,22,40,0.08)', padding: '22px 26px' }}>
-            <div style={{ fontSize: 12, letterSpacing: '.22em', color: '#0a1628', fontWeight: 600, marginBottom: 16, ...enSt }}>
+            <div style={{ fontSize: 12, letterSpacing: '.22em', color: 'var(--color-ink)', fontWeight: 600, marginBottom: 16, ...enSt }}>
               <span style={{ display: 'inline-block', width: 14, height: 1, background: 'currentColor', verticalAlign: 'middle', marginRight: 10 }}/>
               TECHNICAL
             </div>
@@ -274,13 +274,13 @@ export default function ArticleContent() {
               ['使用ロープ',      '60m × 2 ハーフ'],
             ].map(([k, v]) => (
               <div key={k} style={{ display: 'grid', gridTemplateColumns: '40% 1fr', gap: 16, padding: '8px 0', borderBottom: '1px solid rgba(10,22,40,0.08)', fontSize: 12 }}>
-                <div style={{ color: '#3d5070', ...jpSt }}>{k}</div>
-                <div style={{ color: '#0a1628', ...enSt }}>{v}</div>
+                <div style={{ color: 'var(--color-slate)', ...jpSt }}>{k}</div>
+                <div style={{ color: 'var(--color-ink)', ...enSt }}>{v}</div>
               </div>
             ))}
           </div>
           {/* Conditions */}
-          <div style={{ background: '#16263f', color: '#fff', padding: '22px 26px' }}>
+          <div style={{ background: 'var(--color-navy)', color: '#fff', padding: '22px 26px' }}>
             <div style={{ fontSize: 12, letterSpacing: '.22em', fontWeight: 600, marginBottom: 16, ...enSt }}>
               <span style={{ display: 'inline-block', width: 14, height: 1, background: 'currentColor', verticalAlign: 'middle', marginRight: 10 }}/>
               CONDITIONS · DAY 16
@@ -310,26 +310,26 @@ export default function ArticleContent() {
       </section>
 
       {/* SECTION 06 — 行動記録 */}
-      <section style={{ background: '#f7f5ee', padding: '70px 56px 70px', display: 'grid', gridTemplateColumns: '180px 1fr', gap: 40 }}>
+      <section style={{ background: 'var(--color-cream)', padding: '70px 56px 70px', display: 'grid', gridTemplateColumns: '180px 1fr', gap: 40 }}>
         <div>
-          <div style={{ fontSize: 11, letterSpacing: '.22em', color: '#3d5070', ...enSt }}>06</div>
-          <div style={{ marginTop: 6, fontSize: 14, color: '#0a1628', ...jpSt }}>行動記録</div>
-          <div style={{ marginTop: 18, height: 1, width: 36, background: '#3d5070' }}/>
+          <div style={{ fontSize: 11, letterSpacing: '.22em', color: 'var(--color-slate)', ...enSt }}>06</div>
+          <div style={{ marginTop: 6, fontSize: 14, color: 'var(--color-ink)', ...jpSt }}>行動記録</div>
+          <div style={{ marginTop: 18, height: 1, width: 36, background: 'var(--color-slate)' }}/>
         </div>
         <div>
-          <div style={{ display: 'grid', gridTemplateColumns: '90px 80px 1fr 90px 70px', columnGap: 22, rowGap: 0, fontSize: 12, color: '#0a1628' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '90px 80px 1fr 90px 70px', columnGap: 22, rowGap: 0, fontSize: 12, color: 'var(--color-ink)' }}>
             {['DATE', 'DAY', 'RECORD', 'TEMP', 'NOTE'].map(h => (
-              <div key={h} style={{ fontSize: 10, letterSpacing: '.18em', color: '#3d5070', paddingBottom: 12, borderBottom: '1px solid #3d5070', ...enSt }}>{h}</div>
+              <div key={h} style={{ fontSize: 10, letterSpacing: '.18em', color: 'var(--color-slate)', paddingBottom: 12, borderBottom: '1px solid #3d5070', ...enSt }}>{h}</div>
             ))}
             {activityLog.map((d, i) => {
               const star = d[4] === '★'
               return (
                 <>
-                  <div key={`date-${i}`} style={{ padding: '14px 0', borderBottom: '1px solid rgba(10,22,40,0.08)', color: star ? '#0a1628' : '#3d5070', fontWeight: star ? 600 : 400, ...enSt }}>{d[0]}</div>
-                  <div key={`day-${i}`} style={{ padding: '14px 0', borderBottom: '1px solid rgba(10,22,40,0.08)', color: star ? '#0a1628' : '#3d5070', ...enSt }}>{d[1]}</div>
-                  <div key={`rec-${i}`} style={{ padding: '14px 0', borderBottom: '1px solid rgba(10,22,40,0.08)', color: '#0a1628', fontWeight: star ? 500 : 400, ...jpSt }}>{d[2]}</div>
-                  <div key={`tmp-${i}`} style={{ padding: '14px 0', borderBottom: '1px solid rgba(10,22,40,0.08)', color: '#3d5070', ...enSt }}>{d[3]}</div>
-                  <div key={`note-${i}`} style={{ padding: '14px 0', borderBottom: '1px solid rgba(10,22,40,0.08)', color: star ? '#0a1628' : '#3d5070', fontSize: 13, fontWeight: 500, ...enSt }}>{d[4]}</div>
+                  <div key={`date-${i}`} style={{ padding: '14px 0', borderBottom: '1px solid rgba(10,22,40,0.08)', color: star ? 'var(--color-ink)' : 'var(--color-slate)', fontWeight: star ? 600 : 400, ...enSt }}>{d[0]}</div>
+                  <div key={`day-${i}`} style={{ padding: '14px 0', borderBottom: '1px solid rgba(10,22,40,0.08)', color: star ? 'var(--color-ink)' : 'var(--color-slate)', ...enSt }}>{d[1]}</div>
+                  <div key={`rec-${i}`} style={{ padding: '14px 0', borderBottom: '1px solid rgba(10,22,40,0.08)', color: 'var(--color-ink)', fontWeight: star ? 500 : 400, ...jpSt }}>{d[2]}</div>
+                  <div key={`tmp-${i}`} style={{ padding: '14px 0', borderBottom: '1px solid rgba(10,22,40,0.08)', color: 'var(--color-slate)', ...enSt }}>{d[3]}</div>
+                  <div key={`note-${i}`} style={{ padding: '14px 0', borderBottom: '1px solid rgba(10,22,40,0.08)', color: star ? 'var(--color-ink)' : 'var(--color-slate)', fontSize: 13, fontWeight: 500, ...enSt }}>{d[4]}</div>
                 </>
               )
             })}
@@ -340,9 +340,9 @@ export default function ArticleContent() {
       {/* SECTION 07 — 記録写真 */}
       <section style={{ padding: '70px 56px 30px', display: 'grid', gridTemplateColumns: '180px 1fr', gap: 40 }}>
         <div>
-          <div style={{ fontSize: 11, letterSpacing: '.22em', color: '#3d5070', ...enSt }}>07</div>
-          <div style={{ marginTop: 6, fontSize: 14, color: '#0a1628', ...jpSt }}>記録写真</div>
-          <div style={{ marginTop: 18, height: 1, width: 36, background: '#3d5070' }}/>
+          <div style={{ fontSize: 11, letterSpacing: '.22em', color: 'var(--color-slate)', ...enSt }}>07</div>
+          <div style={{ marginTop: 6, fontSize: 14, color: 'var(--color-ink)', ...jpSt }}>記録写真</div>
+          <div style={{ marginTop: 18, height: 1, width: 36, background: 'var(--color-slate)' }}/>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr', gridAutoRows: '180px', gap: 14 }}>
           {[
@@ -366,12 +366,12 @@ export default function ArticleContent() {
       {/* SECTION 08 — おわりに */}
       <section style={{ padding: '60px 56px 80px', display: 'grid', gridTemplateColumns: '180px 1fr', gap: 40 }}>
         <div>
-          <div style={{ fontSize: 11, letterSpacing: '.22em', color: '#3d5070', ...enSt }}>08</div>
-          <div style={{ marginTop: 6, fontSize: 14, color: '#0a1628', ...jpSt }}>おわりに</div>
-          <div style={{ marginTop: 18, height: 1, width: 36, background: '#3d5070' }}/>
+          <div style={{ fontSize: 11, letterSpacing: '.22em', color: 'var(--color-slate)', ...enSt }}>08</div>
+          <div style={{ marginTop: 6, fontSize: 14, color: 'var(--color-ink)', ...jpSt }}>おわりに</div>
+          <div style={{ marginTop: 18, height: 1, width: 36, background: 'var(--color-slate)' }}/>
         </div>
         <div style={{ maxWidth: 720 }}>
-          <p style={{ margin: 0, fontSize: 13.5, lineHeight: 2.05, color: '#0a1628' }}>
+          <p style={{ margin: 0, fontSize: 13.5, lineHeight: 2.05, color: 'var(--color-ink)' }}>
             ポーラーサーカスから帰って、半年が経った。<br/>
             記録を書き起こしていると、登った数時間の出来事よりも、その手前の長い待ち時間、判断、躊躇、それでも先へ進めた瞬間のことばかりが思い出される。<br/><br/>
             登れたことは結果に過ぎない。<br/>
@@ -380,11 +380,11 @@ export default function ArticleContent() {
           </p>
           <div style={{ marginTop: 36, display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(10,22,40,0.08)', paddingTop: 22 }}>
             <div>
-              <div style={{ fontSize: 14, color: '#0a1628', ...jpSt }}>笹木 克彦</div>
-              <div style={{ fontSize: 10.5, color: '#3d5070', letterSpacing: '.06em', marginTop: 2, ...enSt }}>K. Sasaki  ·  JCC会員 (2009 — )</div>
+              <div style={{ fontSize: 14, color: 'var(--color-ink)', ...jpSt }}>笹木 克彦</div>
+              <div style={{ fontSize: 10.5, color: 'var(--color-slate)', letterSpacing: '.06em', marginTop: 2, ...enSt }}>K. Sasaki  ·  JCC会員 (2009 — )</div>
             </div>
           </div>
-          <div style={{ marginTop: 22, display: 'inline-flex', alignItems: 'center', gap: 10, padding: '12px 22px', border: '1px solid rgba(10,22,40,0.08)', color: '#0a1628', fontSize: 12 }}>
+          <div style={{ marginTop: 22, display: 'inline-flex', alignItems: 'center', gap: 10, padding: '12px 22px', border: '1px solid rgba(10,22,40,0.08)', color: 'var(--color-ink)', fontSize: 12 }}>
             <svg width="14" height="16" viewBox="0 0 14 16" fill="none" stroke="currentColor" strokeWidth="1.2">
               <path d="M2 1h7l3 3v11H2z"/><path d="M9 1v3h3"/>
             </svg>
@@ -394,11 +394,11 @@ export default function ArticleContent() {
       </section>
 
       {/* RELATED */}
-      <section style={{ background: '#f7f5ee', padding: '60px 56px 80px', borderTop: '1px solid rgba(10,22,40,0.08)' }}>
+      <section style={{ background: 'var(--color-cream)', padding: '60px 56px 80px', borderTop: '1px solid rgba(10,22,40,0.08)' }}>
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 26 }}>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 18 }}>
-            <h3 style={{ margin: 0, fontSize: 22, letterSpacing: '.06em', fontWeight: 500, color: '#0a1628', ...enSt }}>RELATED CHRONICLES</h3>
-            <span style={{ fontSize: 13, color: '#3d5070', ...jpSt }}>関連する登攀記録</span>
+            <h3 style={{ margin: 0, fontSize: 22, letterSpacing: '.06em', fontWeight: 500, color: 'var(--color-ink)', ...enSt }}>RELATED CHRONICLES</h3>
+            <span style={{ fontSize: 13, color: 'var(--color-slate)', ...jpSt }}>関連する登攀記録</span>
           </div>
           <ArrowLink href="/chronicle">すべての記録を見る</ArrowLink>
         </div>
@@ -410,9 +410,9 @@ export default function ArticleContent() {
                 <img src={r.img} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover',
                   filter: (r as {mono?: boolean}).mono ? 'grayscale(1) contrast(1.05)' : 'saturate(.65) contrast(.95)' }}/>
               </div>
-              <div style={{ marginTop: 12, fontSize: 16, fontWeight: 500, color: '#0a1628', ...enSt }}>{r.yr}</div>
-              <div style={{ marginTop: 5, fontSize: 13.5, lineHeight: 1.4, color: '#0a1628', ...jpSt }}>{r.jp}</div>
-              <div style={{ marginTop: 4, fontSize: 10.5, color: '#3d5070', ...enSt }}>{r.author}</div>
+              <div style={{ marginTop: 12, fontSize: 16, fontWeight: 500, color: 'var(--color-ink)', ...enSt }}>{r.yr}</div>
+              <div style={{ marginTop: 5, fontSize: 13.5, lineHeight: 1.4, color: 'var(--color-ink)', ...jpSt }}>{r.jp}</div>
+              <div style={{ marginTop: 4, fontSize: 10.5, color: 'var(--color-slate)', ...enSt }}>{r.author}</div>
               <div style={{ marginTop: 1, fontSize: 10, color: '#6a7d97', ...enSt }}>{r.en}</div>
             </Link>
           ))}

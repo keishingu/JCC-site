@@ -18,14 +18,14 @@ function TopoSketch() {
 
 export default function ChronicleGrid({ records }: { records: Report[] }) {
   return (
-    <section style={{ background: '#f7f5ee', padding: '40px 56px 60px' }}>
+    <section style={{ background: 'var(--color-cream)', padding: '40px 56px 60px' }}>
       {/* Filter bar */}
       <div style={{ background: '#1d2f4a', color: '#fff', padding: '14px 0', marginBottom: 32,
         display: 'flex', gap: 26, alignItems: 'center', marginLeft: -56, marginRight: -56,
         paddingLeft: 56, paddingRight: 56 }}>
         {[['年代', 'すべて'], ['エリア', 'すべて'], ['スタイル', 'すべて']].map(([label, val]) => (
           <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 14, flex: 1 }}>
-            <span style={{ fontSize: 13, color: '#fff', fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif', flex: '0 0 auto' }}>{label}</span>
+            <span style={{ fontSize: 13, color: '#fff', fontFamily: 'var(--font-jp)', flex: '0 0 auto' }}>{label}</span>
             <div style={{ flex: 1, height: 32, border: '1px solid rgba(255,255,255,.18)', background: 'rgba(255,255,255,.05)',
               display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 12px',
               fontSize: 12, color: 'rgba(255,255,255,.5)' }}>
@@ -35,7 +35,7 @@ export default function ChronicleGrid({ records }: { records: Report[] }) {
           </div>
         ))}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, flex: 1.2 }}>
-          <span style={{ fontSize: 13, color: '#fff', fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }}>キーワード</span>
+          <span style={{ fontSize: 13, color: '#fff', fontFamily: 'var(--font-jp)' }}>キーワード</span>
           <div style={{ flex: 1, height: 32, border: '1px solid rgba(255,255,255,.18)', background: 'rgba(255,255,255,.05)',
             display: 'flex', alignItems: 'center', padding: '0 12px', fontSize: 12, color: 'rgba(255,255,255,.5)' }}>
             フリーワード
@@ -45,17 +45,17 @@ export default function ChronicleGrid({ records }: { records: Report[] }) {
 
       {/* Count + view toggle */}
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 22 }}>
-        <div style={{ fontSize: 15, color: '#0a1628', fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }}>
-          全 <span style={{ fontSize: 22, fontWeight: 500, margin: '0 4px', fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{records.length}</span> 件
+        <div style={{ fontSize: 15, color: 'var(--color-ink)', fontFamily: 'var(--font-jp)' }}>
+          全 <span style={{ fontSize: 22, fontWeight: 500, margin: '0 4px', fontFamily: 'var(--font-en-serif)' }}>{records.length}</span> 件
         </div>
-        <div style={{ display: 'flex', gap: 18, alignItems: 'center', fontSize: 11, color: '#3d5070' }}>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#0a1628', fontWeight: 500,
-            fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>
+        <div style={{ display: 'flex', gap: 18, alignItems: 'center', fontSize: 11, color: 'var(--color-slate)' }}>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: 'var(--color-ink)', fontWeight: 500,
+            fontFamily: 'var(--font-en-serif)' }}>
             <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6"/><rect x="9" y="1" width="6" height="6"/><rect x="1" y="9" width="6" height="6"/><rect x="9" y="9" width="6" height="6"/></svg>
             GRID
           </span>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6,
-            fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>
+            fontFamily: 'var(--font-en-serif)' }}>
             <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="2" width="14" height="2"/><rect x="1" y="7" width="14" height="2"/><rect x="1" y="12" width="14" height="2"/></svg>
             LIST
           </span>
@@ -74,17 +74,17 @@ export default function ChronicleGrid({ records }: { records: Report[] }) {
                 <TopoSketch/>
               )}
             </div>
-            <div style={{ marginTop: 12, fontSize: 16, fontWeight: 500, color: '#0a1628',
-              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.year}</div>
-            <div style={{ marginTop: 5, fontSize: 13.5, lineHeight: 1.4, color: '#0a1628',
-              fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }}>{r.title}</div>
-            <div style={{ marginTop: 4, fontSize: 10.5, color: '#3d5070',
-              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.climbers?.map(c => c.name).join('・')}</div>
+            <div style={{ marginTop: 12, fontSize: 16, fontWeight: 500, color: 'var(--color-ink)',
+              fontFamily: 'var(--font-en-serif)' }}>{r.year}</div>
+            <div style={{ marginTop: 5, fontSize: 13.5, lineHeight: 1.4, color: 'var(--color-ink)',
+              fontFamily: 'var(--font-jp)' }}>{r.title}</div>
+            <div style={{ marginTop: 4, fontSize: 10.5, color: 'var(--color-slate)',
+              fontFamily: 'var(--font-en-serif)' }}>{r.climbers?.map(c => c.name).join('・')}</div>
             <div style={{ marginTop: 1, fontSize: 10, color: '#6a7d97',
-              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.titleEn}</div>
+              fontFamily: 'var(--font-en-serif)' }}>{r.titleEn}</div>
             {r.category && (
               <div style={{ marginTop: 8, display: 'inline-block', fontSize: 10, padding: '3px 8px',
-                border: '1px solid rgba(10,22,40,0.08)', color: '#3d5070', background: 'rgba(255,255,255,.5)' }}>{r.category}</div>
+                border: '1px solid rgba(10,22,40,0.08)', color: 'var(--color-slate)', background: 'rgba(255,255,255,.5)' }}>{r.category}</div>
             )}
           </Link>
         ))}

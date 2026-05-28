@@ -1,6 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&family=Noto+Sans+JP:wght@200;300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+:root {
+  --font-jp:       "Shippori Mincho B1", "Noto Serif JP", serif;
+  --font-en-serif: "Cormorant Garamond", serif;
+  --font-en-sans:  "Jost", "Noto Sans JP", sans-serif;
+
+  --color-ink:   #0a1628;
+  --color-navy:  #16263f;
+  --color-navy2: #1d2f4a;
+  --color-slate: #3d5070;
+  --color-steel: #6a7d97;
+  --color-mist:  #a6b6c8;
+  --color-paper: #f3f1ea;
+  --color-cream: #f7f5ee;
+}
 
 *,
 *::before,

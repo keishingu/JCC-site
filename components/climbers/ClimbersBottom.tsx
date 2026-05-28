@@ -1,7 +1,7 @@
 import { photos } from '@/lib/photos'
 
-const enSt: React.CSSProperties = { fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }
-const jpSt: React.CSSProperties = { fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }
+const enSt: React.CSSProperties = { fontFamily: 'var(--font-en-serif)' }
+const jpSt: React.CSSProperties = { fontFamily: 'var(--font-jp)' }
 
 const links = [
   ['会員になるには', '入会のご案内'],
@@ -13,7 +13,7 @@ const links = [
 export default function ClimbersBottom() {
   return (
     <section style={{
-      background: '#16263f', color: '#fff',
+      background: 'var(--color-navy)', color: '#fff',
       display: 'grid', gridTemplateColumns: '1fr 1fr 280px', minHeight: 280,
     }}>
       {/* PAST CLIMBERS */}

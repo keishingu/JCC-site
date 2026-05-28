@@ -31,21 +31,21 @@ export default function HomeHero({ recentNews, settings }: { recentNews: NewsIte
       <TopNav active="HOME"/>
 
       {/* Title */}
-      <div style={{ position: 'absolute', left: 56, top: 180, color: '#0a1628', maxWidth: 540 }}>
+      <div style={{ position: 'absolute', left: 56, top: 180, color: 'var(--color-ink)', maxWidth: 540 }}>
         <h1 style={{ margin: 0, fontSize: 44, lineHeight: 1.25, letterSpacing: '.05em', fontWeight: 500,
-          fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }}>
+          fontFamily: 'var(--font-jp)' }}>
           日本クライマースクラブ
         </h1>
-        <div style={{ marginTop: 16, fontSize: 22, letterSpacing: '.18em', fontWeight: 400, color: '#16263f',
-          fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>
+        <div style={{ marginTop: 16, fontSize: 22, letterSpacing: '.18em', fontWeight: 400, color: 'var(--color-navy)',
+          fontFamily: 'var(--font-en-serif)' }}>
           JAPAN CLIMBERS CLUB
         </div>
-        <div style={{ marginTop: 10, fontSize: 16, letterSpacing: '.22em', fontWeight: 300, color: '#3d5070',
-          fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>
+        <div style={{ marginTop: 10, fontSize: 16, letterSpacing: '.22em', fontWeight: 300, color: 'var(--color-slate)',
+          fontFamily: 'var(--font-en-serif)' }}>
           Since 1958
         </div>
-        <div style={{ marginTop: 60, fontSize: 13.5, letterSpacing: '.22em', color: '#3d5070', lineHeight: 2.0,
-          fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>
+        <div style={{ marginTop: 60, fontSize: 13.5, letterSpacing: '.22em', color: 'var(--color-slate)', lineHeight: 2.0,
+          fontFamily: 'var(--font-en-serif)' }}>
           Rock. Snow. Ice.<br/>
           And the spirit to face them.
         </div>
@@ -62,7 +62,7 @@ export default function HomeHero({ recentNews, settings }: { recentNews: NewsIte
           <circle cx="12" cy="12" r="9"/>
           <path d="M12 8h.01M11 12h1v5h1"/>
         </svg>
-        <span style={{ fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif', fontWeight: 400 }}>
+        <span style={{ fontFamily: 'var(--font-jp)', fontWeight: 400 }}>
           {caption}
         </span>
       </div>
@@ -71,7 +71,7 @@ export default function HomeHero({ recentNews, settings }: { recentNews: NewsIte
       {recentNews.length > 0 && (
         <div style={{ position: 'absolute', right: 60, bottom: 58, width: 360 }}>
           <div style={{ fontSize: 12, letterSpacing: '.22em', color: '#fff', marginBottom: 14, opacity: .92,
-            fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif', textTransform: 'uppercase', fontWeight: 600 }}>
+            fontFamily: 'var(--font-en-serif)', textTransform: 'uppercase', fontWeight: 600 }}>
             <span style={{ display: 'inline-block', width: 18, height: 1, background: '#fff', verticalAlign: 'middle', marginRight: 10, transform: 'translateY(-2px)' }}/>
             NEWS
           </div>
@@ -82,7 +82,7 @@ export default function HomeHero({ recentNews, settings }: { recentNews: NewsIte
                 paddingBottom: 12, borderBottom: '1px solid rgba(255,255,255,.18)',
               }}>
                 <span style={{ flex: '0 0 auto', opacity: .82, letterSpacing: '.04em',
-                  fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{formatDate(n.publishedAt)}</span>
+                  fontFamily: 'var(--font-en-serif)' }}>{formatDate(n.publishedAt)}</span>
                 <span style={{ opacity: .98 }}>{n.title}</span>
               </Link>
             ))}
@@ -91,7 +91,7 @@ export default function HomeHero({ recentNews, settings }: { recentNews: NewsIte
             <Link href="/news" style={{
               display: 'inline-flex', alignItems: 'center', gap: 12, color: '#fff',
               textDecoration: 'none', fontSize: 11.5, letterSpacing: '.18em', fontWeight: 500,
-              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
+              fontFamily: 'var(--font-en-serif)',
             }}>
               <span style={{ width: 22, height: 1, background: '#fff' }}/>VIEW ALL
             </Link>

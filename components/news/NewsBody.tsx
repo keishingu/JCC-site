@@ -16,8 +16,8 @@ function formatDate(iso?: string) {
   return iso.slice(0, 10).replace(/-/g, '.')
 }
 
-const enSt: React.CSSProperties = { fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }
-const jpSt: React.CSSProperties = { fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }
+const enSt: React.CSSProperties = { fontFamily: 'var(--font-en-serif)' }
+const jpSt: React.CSSProperties = { fontFamily: 'var(--font-jp)' }
 
 const categories = ['FIELD NOTES', 'TECH. / GEAR', 'EXPEDITION', 'ANNOUNCEMENT']
 const tags = ['アイス', '冬壁', '装備', 'アルパイン', '谷川岳', '剱岳', '海外', 'ギア']
@@ -28,7 +28,7 @@ export default function NewsBody({ articles, featured }: { articles: NewsItem[];
 
   return (
     <section style={{
-      background: '#f7f5ee', padding: '50px 56px 60px',
+      background: 'var(--color-cream)', padding: '50px 56px 60px',
       display: 'grid', gridTemplateColumns: '1fr 220px', gap: 36,
       borderTop: '1px solid rgba(10,22,40,0.08)',
     }}>
@@ -37,8 +37,8 @@ export default function NewsBody({ articles, featured }: { articles: NewsItem[];
         {/* Featured article */}
         {featuredItem && (
           <div>
-            <div style={{ marginBottom: 12, fontSize: 12, letterSpacing: '.22em', color: '#3d5070', fontWeight: 600, ...enSt }}>
-              <span style={{ display: 'inline-block', width: 1, height: 12, background: '#16263f', verticalAlign: 'middle', marginRight: 8 }}/>
+            <div style={{ marginBottom: 12, fontSize: 12, letterSpacing: '.22em', color: 'var(--color-slate)', fontWeight: 600, ...enSt }}>
+              <span style={{ display: 'inline-block', width: 1, height: 12, background: 'var(--color-navy)', verticalAlign: 'middle', marginRight: 8 }}/>
               FEATURED ARTICLE
             </div>
             <article style={{ background: '#fff', display: 'grid', gridTemplateColumns: '1.1fr 1fr', minHeight: 280, border: '1px solid rgba(10,22,40,0.08)' }}>
@@ -54,21 +54,21 @@ export default function NewsBody({ articles, featured }: { articles: NewsItem[];
                 </div>
               </div>
               <div style={{ padding: '28px 28px 24px', display: 'flex', flexDirection: 'column' }}>
-                <h3 style={{ margin: 0, fontSize: 22, lineHeight: 1.4, color: '#0a1628', ...jpSt }}>
+                <h3 style={{ margin: 0, fontSize: 22, lineHeight: 1.4, color: 'var(--color-ink)', ...jpSt }}>
                   {featuredItem.title}
                 </h3>
                 {featuredItem.excerpt && (
-                  <p style={{ marginTop: 18, fontSize: 12, lineHeight: 1.95, color: '#3d5070' }}>
+                  <p style={{ marginTop: 18, fontSize: 12, lineHeight: 1.95, color: 'var(--color-slate)' }}>
                     {featuredItem.excerpt}
                   </p>
                 )}
                 <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 22 }}>
-                  {featuredItem.author && <span style={{ fontSize: 11, color: '#3d5070', ...enSt }}>by {featuredItem.author}</span>}
+                  {featuredItem.author && <span style={{ fontSize: 11, color: 'var(--color-slate)', ...enSt }}>by {featuredItem.author}</span>}
                   <Link href={`/news/${featuredItem.slug}`} style={{
-                    display: 'inline-flex', alignItems: 'center', gap: 14, color: '#0a1628',
+                    display: 'inline-flex', alignItems: 'center', gap: 14, color: 'var(--color-ink)',
                     textDecoration: 'none', fontWeight: 500, fontSize: 12, letterSpacing: '.14em', ...enSt,
                   }}>
-                    <span style={{ width: 26, height: 1, background: '#0a1628', opacity: .7 }}/>
+                    <span style={{ width: 26, height: 1, background: 'var(--color-ink)', opacity: .7 }}/>
                     READ MORE
                   </Link>
                 </div>
@@ -79,8 +79,8 @@ export default function NewsBody({ articles, featured }: { articles: NewsItem[];
 
         {/* Latest articles */}
         <div style={{ marginTop: 46 }}>
-          <div style={{ marginBottom: 16, fontSize: 12, letterSpacing: '.22em', color: '#3d5070', fontWeight: 600, ...enSt }}>
-            <span style={{ display: 'inline-block', width: 1, height: 12, background: '#16263f', verticalAlign: 'middle', marginRight: 8 }}/>
+          <div style={{ marginBottom: 16, fontSize: 12, letterSpacing: '.22em', color: 'var(--color-slate)', fontWeight: 600, ...enSt }}>
+            <span style={{ display: 'inline-block', width: 1, height: 12, background: 'var(--color-navy)', verticalAlign: 'middle', marginRight: 8 }}/>
             LATEST ARTICLES
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 20 }}>
@@ -94,11 +94,11 @@ export default function NewsBody({ articles, featured }: { articles: NewsItem[];
                 </div>
                 <div style={{ marginTop: 10 }}>
                   <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                    <span style={{ fontSize: 9.5, padding: '3px 8px', border: '1px solid rgba(10,22,40,0.08)', color: '#16263f', ...enSt }}>{tagLabels[a.tag] ?? a.tag}</span>
-                    <span style={{ fontSize: 10, color: '#3d5070', ...enSt }}>{formatDate(a.publishedAt)}</span>
+                    <span style={{ fontSize: 9.5, padding: '3px 8px', border: '1px solid rgba(10,22,40,0.08)', color: 'var(--color-navy)', ...enSt }}>{tagLabels[a.tag] ?? a.tag}</span>
+                    <span style={{ fontSize: 10, color: 'var(--color-slate)', ...enSt }}>{formatDate(a.publishedAt)}</span>
                   </div>
-                  <div style={{ marginTop: 6, fontSize: 13, lineHeight: 1.5, color: '#0a1628', ...jpSt }}>{a.title}</div>
-                  {a.author && <div style={{ marginTop: 4, fontSize: 10.5, color: '#3d5070', ...enSt }}>by {a.author}</div>}
+                  <div style={{ marginTop: 6, fontSize: 13, lineHeight: 1.5, color: 'var(--color-ink)', ...jpSt }}>{a.title}</div>
+                  {a.author && <div style={{ marginTop: 4, fontSize: 10.5, color: 'var(--color-slate)', ...enSt }}>by {a.author}</div>}
                 </div>
               </article>
             ))}
@@ -109,22 +109,22 @@ export default function NewsBody({ articles, featured }: { articles: NewsItem[];
       {/* Sidebar */}
       <aside>
         <div style={{ marginBottom: 28 }}>
-          <div style={{ fontSize: 12, letterSpacing: '.22em', color: '#3d5070', fontWeight: 600, marginBottom: 16, ...enSt }}>
+          <div style={{ fontSize: 12, letterSpacing: '.22em', color: 'var(--color-slate)', fontWeight: 600, marginBottom: 16, ...enSt }}>
             CATEGORIES
           </div>
           {categories.map((c) => (
-            <div key={c} style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 0', borderBottom: '1px solid rgba(10,22,40,0.08)', fontSize: 12, color: '#3d5070' }}>
+            <div key={c} style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 0', borderBottom: '1px solid rgba(10,22,40,0.08)', fontSize: 12, color: 'var(--color-slate)' }}>
               <span style={enSt}>{c}</span>
             </div>
           ))}
         </div>
         <div>
-          <div style={{ fontSize: 12, letterSpacing: '.22em', color: '#3d5070', fontWeight: 600, marginBottom: 12, ...enSt }}>
+          <div style={{ fontSize: 12, letterSpacing: '.22em', color: 'var(--color-slate)', fontWeight: 600, marginBottom: 12, ...enSt }}>
             TAGS
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
             {tags.map((t) => (
-              <span key={t} style={{ fontSize: 11, padding: '4px 10px', border: '1px solid rgba(10,22,40,0.08)', color: '#3d5070', background: 'rgba(255,255,255,.5)' }}>{t}</span>
+              <span key={t} style={{ fontSize: 11, padding: '4px 10px', border: '1px solid rgba(10,22,40,0.08)', color: 'var(--color-slate)', background: 'rgba(255,255,255,.5)' }}>{t}</span>
             ))}
           </div>
         </div>

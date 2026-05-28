@@ -19,14 +19,14 @@ function TopoSketch() {
 export default function HomeChronicleRow({ reports }: { reports: Report[] }) {
   return (
     <section style={{
-      background: '#f7f5ee', padding: '70px 56px 80px',
+      background: 'var(--color-cream)', padding: '70px 56px 80px',
       borderTop: '1px solid rgba(10,22,40,0.08)', borderBottom: '1px solid rgba(10,22,40,0.08)',
     }}>
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 22 }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
-          <h2 style={{ margin: 0, fontSize: 26, letterSpacing: '.06em', fontWeight: 500, color: '#0a1628',
-            fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>CHRONICLE</h2>
-          <span style={{ fontSize: 13, color: '#3d5070', letterSpacing: '.08em' }}>登攀記録アーカイブ</span>
+          <h2 style={{ margin: 0, fontSize: 26, letterSpacing: '.06em', fontWeight: 500, color: 'var(--color-ink)',
+            fontFamily: 'var(--font-en-sans)' }}>CHRONICLE</h2>
+          <span style={{ fontSize: 13, color: 'var(--color-slate)', letterSpacing: '.08em' }}>登攀記録アーカイブ</span>
         </div>
         <ArrowLink href="/reports">すべての記録を見る</ArrowLink>
       </div>
@@ -42,14 +42,14 @@ export default function HomeChronicleRow({ reports }: { reports: Report[] }) {
                 <TopoSketch/>
               )}
             </div>
-            <div style={{ marginTop: 14, fontSize: 18, letterSpacing: '.04em', fontWeight: 500, color: '#0a1628',
-              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.year}</div>
-            <div style={{ marginTop: 6, fontSize: 14.5, lineHeight: 1.45, color: '#0a1628',
-              fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }}>{r.title}</div>
-            <div style={{ marginTop: 6, fontSize: 11, color: '#3d5070', letterSpacing: '.06em',
-              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.climbers?.map(c => c.name).join('・')}</div>
+            <div style={{ marginTop: 14, fontSize: 18, letterSpacing: '.04em', fontWeight: 500, color: 'var(--color-ink)',
+              fontFamily: 'var(--font-en-serif)' }}>{r.year}</div>
+            <div style={{ marginTop: 6, fontSize: 14.5, lineHeight: 1.45, color: 'var(--color-ink)',
+              fontFamily: 'var(--font-jp)' }}>{r.title}</div>
+            <div style={{ marginTop: 6, fontSize: 11, color: 'var(--color-slate)', letterSpacing: '.06em',
+              fontFamily: 'var(--font-en-serif)' }}>{r.climbers?.map(c => c.name).join('・')}</div>
             <div style={{ marginTop: 2, fontSize: 10.5, color: '#6a7d97', letterSpacing: '.06em',
-              fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>{r.titleEn}</div>
+              fontFamily: 'var(--font-en-serif)' }}>{r.titleEn}</div>
           </Link>
         ))}
       </div>

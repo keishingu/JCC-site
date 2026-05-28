@@ -26,19 +26,19 @@ function JournalCoverLarge({ issue }: { issue: JournalIssue }) {
       <div style={{
         position: 'absolute', top: 10, left: 12, color: '#fff', fontWeight: 700, fontSize: 22,
         letterSpacing: '.04em', lineHeight: 1, textShadow: '0 1px 4px rgba(0,0,0,.4)',
-        fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
+        fontFamily: 'var(--font-en-serif)',
       }}>JCC</div>
       <div style={{
         position: 'absolute', top: 12, right: 11, color: 'rgba(255,255,255,.92)', fontSize: 7,
         letterSpacing: '.12em', textAlign: 'right',
-        fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
+        fontFamily: 'var(--font-en-serif)',
       }}>No.{issue.issueNumber}<br/>{issue.season}</div>
     </div>
   )
 }
 
-const enSt: React.CSSProperties = { fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }
-const jpSt: React.CSSProperties = { fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }
+const enSt: React.CSSProperties = { fontFamily: 'var(--font-en-serif)' }
+const jpSt: React.CSSProperties = { fontFamily: 'var(--font-jp)' }
 
 export default function JournalLatest({ latestIssue }: { latestIssue: JournalIssue | null }) {
   if (!latestIssue) return null
@@ -51,7 +51,7 @@ export default function JournalLatest({ latestIssue }: { latestIssue: JournalIss
     <>
       {/* Latest issue detail */}
       <section style={{
-        background: '#f3f1ea', padding: '50px 56px 50px',
+        background: 'var(--color-paper)', padding: '50px 56px 50px',
         display: 'grid', gridTemplateColumns: '260px 1.2fr 1fr 200px', gap: 28, alignItems: 'flex-start',
         borderTop: '1px solid rgba(10,22,40,0.08)',
       }}>
@@ -59,33 +59,33 @@ export default function JournalLatest({ latestIssue }: { latestIssue: JournalIss
           <JournalCoverLarge issue={latestIssue}/>
         </div>
         <div>
-          <div style={{ display: 'inline-block', padding: '5px 12px', background: '#16263f', color: '#fff', fontSize: 11, letterSpacing: '.18em', ...enSt }}>最新号</div>
-          <div style={{ marginTop: 14, fontSize: 50, fontWeight: 500, letterSpacing: '.02em', lineHeight: 1, color: '#0a1628', ...enSt }}>No.{latestIssue.issueNumber}</div>
-          <div style={{ marginTop: 8, fontSize: 22, color: '#0a1628', ...jpSt }}>{latestIssue.season}</div>
-          <div style={{ marginTop: 26, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 22, fontSize: 12, color: '#3d5070' }}>
+          <div style={{ display: 'inline-block', padding: '5px 12px', background: 'var(--color-navy)', color: '#fff', fontSize: 11, letterSpacing: '.18em', ...enSt }}>最新号</div>
+          <div style={{ marginTop: 14, fontSize: 50, fontWeight: 500, letterSpacing: '.02em', lineHeight: 1, color: 'var(--color-ink)', ...enSt }}>No.{latestIssue.issueNumber}</div>
+          <div style={{ marginTop: 8, fontSize: 22, color: 'var(--color-ink)', ...jpSt }}>{latestIssue.season}</div>
+          <div style={{ marginTop: 26, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 22, fontSize: 12, color: 'var(--color-slate)' }}>
             {publishedAt && (
               <div>
-                <div style={{ color: '#0a1628', marginBottom: 4, ...jpSt }}>発行日</div>
+                <div style={{ color: 'var(--color-ink)', marginBottom: 4, ...jpSt }}>発行日</div>
                 <div style={enSt}>{publishedAt}</div>
               </div>
             )}
             {latestIssue.pageCount && (
               <div>
-                <div style={{ color: '#0a1628', marginBottom: 4, ...jpSt }}>ページ数</div>
+                <div style={{ color: 'var(--color-ink)', marginBottom: 4, ...jpSt }}>ページ数</div>
                 <div style={enSt}>{latestIssue.pageCount}ページ</div>
               </div>
             )}
           </div>
           {latestIssue.feature && (
-            <div style={{ marginTop: 18, fontSize: 12, color: '#3d5070' }}>
-              <div style={{ color: '#0a1628', marginBottom: 4, ...jpSt }}>特集</div>
+            <div style={{ marginTop: 18, fontSize: 12, color: 'var(--color-slate)' }}>
+              <div style={{ color: 'var(--color-ink)', marginBottom: 4, ...jpSt }}>特集</div>
               {latestIssue.feature}
             </div>
           )}
           <div style={{ marginTop: 26, display: 'flex', gap: 10 }}>
             {latestIssue.pdfFile && (
               <a href={latestIssue.pdfFile.url} target="_blank" rel="noopener noreferrer" style={{
-                background: '#16263f', color: '#fff', border: 'none',
+                background: 'var(--color-navy)', color: '#fff', border: 'none',
                 padding: '12px 18px', fontSize: 12, letterSpacing: '.08em', cursor: 'pointer',
                 display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none',
               }}>
@@ -96,7 +96,7 @@ export default function JournalLatest({ latestIssue }: { latestIssue: JournalIss
               </a>
             )}
             <button style={{
-              background: 'transparent', color: '#0a1628', border: '1px solid rgba(10,22,40,0.08)',
+              background: 'transparent', color: 'var(--color-ink)', border: '1px solid rgba(10,22,40,0.08)',
               padding: '12px 18px', fontSize: 12, letterSpacing: '.08em', cursor: 'pointer',
             }}>目次を見る</button>
           </div>
@@ -106,18 +106,18 @@ export default function JournalLatest({ latestIssue }: { latestIssue: JournalIss
         {latestIssue.toc && latestIssue.toc.length > 0 && (
           <div>
             {latestIssue.feature && (
-              <div style={{ fontSize: 13, color: '#0a1628', ...jpSt }}>特集：{latestIssue.feature}</div>
+              <div style={{ fontSize: 13, color: 'var(--color-ink)', ...jpSt }}>特集：{latestIssue.feature}</div>
             )}
             <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column' }}>
               {latestIssue.toc.map((entry, i) => (
                 <div key={i} style={{
                   display: 'grid', gridTemplateColumns: '38px 1fr auto', gap: 12,
                   padding: '9px 0', borderBottom: '1px solid rgba(10,22,40,0.08)',
-                  fontSize: 12, color: '#0a1628', alignItems: 'baseline',
+                  fontSize: 12, color: 'var(--color-ink)', alignItems: 'baseline',
                 }}>
-                  <span style={{ color: '#3d5070', ...enSt }}>{entry.page}</span>
+                  <span style={{ color: 'var(--color-slate)', ...enSt }}>{entry.page}</span>
                   <span style={jpSt}>{entry.title}</span>
-                  <span style={{ fontSize: 11, color: '#3d5070' }}>{entry.author}</span>
+                  <span style={{ fontSize: 11, color: 'var(--color-slate)' }}>{entry.author}</span>
                 </div>
               ))}
             </div>
