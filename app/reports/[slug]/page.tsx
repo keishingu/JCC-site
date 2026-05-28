@@ -54,6 +54,13 @@ export default async function ReportPage({ params }: { params: Promise<{ slug: s
           </div>
         )}
 
+        {/* Body */}
+        {report.body && (
+          <div className="prose" style={{ maxWidth: 720, marginBottom: 56 }}>
+            <RichText content={report.body}/>
+          </div>
+        )}
+
         {/* Topo + course info */}
         {(report.topoImage || report.courseTime || report.gear) && (
           <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 48, marginBottom: 48, alignItems: 'start' }}>
@@ -79,13 +86,6 @@ export default async function ReportPage({ params }: { params: Promise<{ slug: s
                 <img src={report.topoImage.url} alt="トポ図" style={{ width: '100%', height: 'auto' }}/>
               </div>
             )}
-          </div>
-        )}
-
-        {/* Body */}
-        {report.body && (
-          <div className="prose" style={{ maxWidth: 720, marginBottom: 56 }}>
-            <RichText content={report.body}/>
           </div>
         )}
 
