@@ -6,7 +6,7 @@ export const client = createClient({
   apiKey: process.env.MICROCMS_API_KEY || '',
 })
 
-export type Chronicle = MicroCMSListContent & {
+export type Report = MicroCMSListContent & {
   title: string
   slug: string
   year: number
@@ -66,9 +66,9 @@ export type Member = MicroCMSListContent & {
 
 const isConfigured = !!(process.env.MICROCMS_SERVICE_DOMAIN && process.env.MICROCMS_API_KEY)
 
-export async function getChronicles() {
-  if (!isConfigured) return { contents: [] as Chronicle[], totalCount: 0 }
-  return client.getList<Chronicle>({ endpoint: 'chronicles', queries: { limit: 100, orders: '-year' } })
+export async function getReports() {
+  if (!isConfigured) return { contents: [] as Report[], totalCount: 0 }
+  return client.getList<Report>({ endpoint: 'reports', queries: { limit: 100, orders: '-year' } })
 }
 
 export async function getNewsList() {

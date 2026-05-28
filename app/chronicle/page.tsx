@@ -2,10 +2,10 @@ import PageShell from '@/components/layout/PageShell'
 import ChronicleHero from '@/components/chronicle/ChronicleHero'
 import ChronicleGrid from '@/components/chronicle/ChronicleGrid'
 import ChronicleDetail from '@/components/chronicle/ChronicleDetail'
-import { getChronicles } from '@/lib/microcms'
+import { getReports } from '@/lib/microcms'
 
 export default async function ChroniclePage() {
-  const { contents: chronicles } = await getChronicles()
+  const { contents: chronicles } = await getReports()
 
   return (
     <PageShell sidebarProps={{ variant: 'minimal', pageLabel: 'CHRONICLE — 01' }}>

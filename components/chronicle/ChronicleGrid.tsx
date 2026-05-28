@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import type { Chronicle } from '@/lib/microcms'
+import type { Report } from '@/lib/microcms'
 
 function TopoSketch() {
   return (
@@ -16,7 +16,7 @@ function TopoSketch() {
   )
 }
 
-export default function ChronicleGrid({ records }: { records: Chronicle[] }) {
+export default function ChronicleGrid({ records }: { records: Report[] }) {
   return (
     <section style={{ background: '#f7f5ee', padding: '40px 56px 60px' }}>
       {/* Filter bar */}
