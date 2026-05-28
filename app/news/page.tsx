@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 import PageShell from '@/components/layout/PageShell'
 import NewsHero from '@/components/news/NewsHero'
 import NewsAnnouncements from '@/components/news/NewsAnnouncements'

@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 import PageShell from '@/components/layout/PageShell'
 import JournalHero from '@/components/journal/JournalHero'
 import JournalGrid from '@/components/journal/JournalGrid'

@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 import PageShell from '@/components/layout/PageShell'
 import HomeHero from '@/components/home/Hero'
 import HomePhilosophy from '@/components/home/Philosophy'

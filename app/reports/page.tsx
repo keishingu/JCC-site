@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 import PageShell from '@/components/layout/PageShell'
 import ChronicleHero from '@/components/chronicle/ChronicleHero'
 import ChronicleGrid from '@/components/chronicle/ChronicleGrid'

@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 import PageShell from '@/components/layout/PageShell'
 import ClimbersHero from '@/components/climbers/ClimbersHero'
 import ClimbersGrid from '@/components/climbers/ClimbersGrid'

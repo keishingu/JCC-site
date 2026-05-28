@@ -1,12 +1,9 @@
 import { notFound } from 'next/navigation'
 import PageShell from '@/components/layout/PageShell'
 import Markdown from '@/components/Markdown'
-import { getReport, getReports } from '@/lib/microcms'
+import { getReport } from '@/lib/microcms'
 
-export async function generateStaticParams() {
-  const { contents } = await getReports()
-  return contents.filter((r) => r.slug).map((r) => ({ slug: r.slug }))
-}
+export const revalidate = 60
 
 const enSt: React.CSSProperties = { fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }
 const jpSt: React.CSSProperties = { fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }

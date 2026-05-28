@@ -1,12 +1,9 @@
 import { notFound } from 'next/navigation'
 import PageShell from '@/components/layout/PageShell'
 import Markdown from '@/components/Markdown'
-import { getNewsItem, getNewsList } from '@/lib/microcms'
+import { getNewsItem } from '@/lib/microcms'
 
-export async function generateStaticParams() {
-  const { contents } = await getNewsList()
-  return contents.filter((n) => n.slug).map((n) => ({ slug: n.slug }))
-}
+export const revalidate = 60
 
 const tagLabels: Record<string, string> = {
   announcement: 'お知らせ',
