@@ -68,6 +68,14 @@ export type JournalIssue = MicroCMSListContent & {
   photos?: { image: MicroCMSImage; caption?: string }[]
 }
 
+export type SiteSettings = {
+  topImage?: MicroCMSImage
+  topImageCaption?: string
+  philosophyText?: string
+  philosophyMessage?: string
+  philosophyImage?: MicroCMSImage
+}
+
 export async function getReport(slug: string): Promise<Report | null> {
   if (!isConfigured) return null
   const res = await client.getList<Report>({
@@ -99,6 +107,11 @@ export async function getNewsList() {
 export async function getJournalIssues() {
   if (!isConfigured) return { contents: [] as JournalIssue[], totalCount: 0 }
   return client.getList<JournalIssue>({ endpoint: 'journal-issues', queries: { limit: 100, orders: '-issueNumber' } })
+}
+
+export async function getSettings(): Promise<SiteSettings> {
+  if (!isConfigured) return {}
+  return client.getObject<SiteSettings>({ endpoint: 'settings' })
 }
 
 export async function getClimbers() {

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import TopNav from '../layout/TopNav'
 import { photos } from '@/lib/photos'
-import type { NewsItem } from '@/lib/microcms'
+import type { NewsItem, SiteSettings } from '@/lib/microcms'
 
 function formatDate(iso?: string) {
   if (!iso) return ''
@@ -13,11 +13,13 @@ const tagLabels: Record<string, string> = {
   field: 'FIELD', tech: 'TECH.', gear: 'GEAR', expedition: 'EXPEDITION',
 }
 
-export default function HomeHero({ recentNews }: { recentNews: NewsItem[] }) {
+export default function HomeHero({ recentNews, settings }: { recentNews: NewsItem[]; settings: SiteSettings }) {
+  const heroSrc = settings.topImage?.url ?? photos.heroIce
+  const caption = settings.topImageCaption ?? '烏帽子沢奥壁 大氷柱へ向かう谷垣会員'
   return (
     <section style={{ position: 'relative', height: 720, overflow: 'hidden' }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={photos.heroIce} alt=""
+      <img src={heroSrc} alt=""
         style={{
           position: 'absolute', inset: 0, width: '100%', height: '100%',
           objectFit: 'cover', objectPosition: '50% 55%',
@@ -61,7 +63,7 @@ export default function HomeHero({ recentNews }: { recentNews: NewsItem[] }) {
           <path d="M12 8h.01M11 12h1v5h1"/>
         </svg>
         <span style={{ fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif', fontWeight: 400 }}>
-          烏帽子沢奥壁 大氷柱へ向かう谷垣会員
+          {caption}
         </span>
       </div>
 
