@@ -1,11 +1,6 @@
 import Link from 'next/link'
 
-interface SidebarProps {
-  pageLabel?: string
-  pageNum?: string
-}
-
-export default function Sidebar({ pageLabel, pageNum }: SidebarProps) {
+export default function Sidebar() {
   return (
     <aside
       className="flex-none flex flex-col relative border-r"
@@ -24,31 +19,6 @@ export default function Sidebar({ pageLabel, pageNum }: SidebarProps) {
           JAPAN<br/>CLIMBERS<br/>CLUB
         </div>
       </Link>
-
-      {/* Rotated page label */}
-      {pageLabel && (
-        <div style={{
-          position: 'absolute', left: 30, top: '50%',
-          transform: 'translateY(-50%) rotate(-90deg)', transformOrigin: 'left center',
-          fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
-          fontSize: 10, letterSpacing: '.42em', color: 'rgba(255,255,255,.55)',
-          whiteSpace: 'nowrap',
-        }}>{pageLabel}</div>
-      )}
-
-      {pageNum && (
-        <div style={{
-          position: 'absolute', left: 22, top: '50%',
-          marginTop: 80,
-          fontSize: 11, letterSpacing: '.18em', color: 'rgba(255,255,255,.5)',
-          display: 'flex', alignItems: 'center', gap: 8,
-          transform: 'rotate(-90deg)', transformOrigin: 'left center',
-          fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
-        }}>
-          <span style={{ width: 22, height: 1, background: 'rgba(255,255,255,.35)' }}/>
-          {pageNum}
-        </div>
-      )}
 
       {/* Bottom */}
       <div style={{ marginTop: 'auto' }}>
