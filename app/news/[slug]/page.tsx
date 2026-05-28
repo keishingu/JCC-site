@@ -25,7 +25,7 @@ const jpSt: React.CSSProperties = { fontFamily: 'var(--font-jp)' }
 
 export default async function NewsItemPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const item = await getNewsItem(slug)
+  const item = await getNewsItem(decodeURIComponent(slug))
   if (!item) notFound()
 
   return (

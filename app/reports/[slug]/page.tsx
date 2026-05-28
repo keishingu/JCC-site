@@ -10,7 +10,7 @@ const jpSt: React.CSSProperties = { fontFamily: 'var(--font-jp)' }
 
 export default async function ReportPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const report = await getReport(slug)
+  const report = await getReport(decodeURIComponent(slug))
   if (!report) notFound()
 
   return (
