@@ -27,7 +27,7 @@ export default function ClimbersBottom() {
           その足跡と精神は、今も私たちの指針となっています。
         </p>
         <div style={{ marginTop: 14 }}>
-          <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, fontSize: 11, letterSpacing: '.14em', color: '#fff', textDecoration: 'none', ...enSt }}>
+          <a href="#past" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, fontSize: 11, letterSpacing: '.14em', color: '#fff', textDecoration: 'none', ...enSt }}>
             <span style={{ width: 18, height: 1, background: '#fff' }}/>一覧を見る
           </a>
         </div>

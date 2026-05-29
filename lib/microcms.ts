@@ -121,3 +121,11 @@ export async function getClimbers() {
     queries: { limit: 100, filters: 'active[equals]true', orders: 'order' },
   })
 }
+
+export async function getPastClimbers() {
+  if (!isConfigured) return { contents: [] as Climber[], totalCount: 0 }
+  return client.getList<Climber>({
+    endpoint: 'climbers',
+    queries: { limit: 100, filters: 'active[equals]false', orders: 'order' },
+  })
+}
