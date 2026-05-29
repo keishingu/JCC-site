@@ -12,13 +12,13 @@ export default function HomePhilosophy({ settings }: { settings: SiteSettings })
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.25fr', gap: 60, alignItems: 'center' }}>
         <div>
           <h2 style={{
-            margin: 0, fontSize: 32, lineHeight: 1.55, letterSpacing: '.06em', fontWeight: 500, color: '#0a1628',
-            fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif',
+            margin: 0, fontSize: 32, lineHeight: 1.55, letterSpacing: '.06em', fontWeight: 500, color: 'var(--color-ink)',
+            fontFamily: 'var(--font-jp)',
             whiteSpace: 'pre-line',
           }}>
             {delegateText}
           </h2>
-          <div style={{ marginTop: 30, fontSize: 13, lineHeight: 2.0, color: '#3d5070', maxWidth: 480, whiteSpace: 'pre-line' }}>
+          <div style={{ marginTop: 30, fontSize: 13, lineHeight: 2.0, color: 'var(--color-slate)', maxWidth: 480, whiteSpace: 'pre-line' }}>
             {delegateMessage}
           </div>
           <div style={{ marginTop: 36 }}>

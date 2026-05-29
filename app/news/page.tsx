@@ -11,7 +11,7 @@ export default async function NewsPage() {
   const announcements = news.filter((n) => ['announcement', 'journal', 'recruit'].includes(n.tag))
 
   return (
-    <PageShell sidebarProps={{ variant: 'full', activeNav: 'NEWS', decoration: 'mountain' }}>
+    <PageShell>
       <NewsHero/>
       <NewsAnnouncements items={announcements}/>
       <NewsBody articles={news}/>

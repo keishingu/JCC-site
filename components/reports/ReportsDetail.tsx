@@ -60,32 +60,32 @@ function NotebookPanel() {
   )
 }
 
-export default function ChronicleDetail() {
+export default function ReportsDetail() {
   return (
-    <section style={{ background: '#16263f', color: '#fff', display: 'grid', gridTemplateColumns: '1fr 1.25fr', minHeight: 480 }}>
+    <section style={{ background: 'var(--color-navy)', color: '#fff', display: 'grid', gridTemplateColumns: '1fr 1.25fr', minHeight: 480 }}>
       <div style={{ padding: '40px 50px 50px' }}>
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: 12,
           color: 'rgba(255,255,255,.7)', fontSize: 11.5, letterSpacing: '.16em', marginBottom: 26,
-          fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
+          fontFamily: 'var(--font-en-serif)',
         }}>
           <span style={{ width: 22, height: 1, background: 'rgba(255,255,255,.6)' }}/>FEATURED
         </div>
         <div style={{ fontSize: 28, fontWeight: 500, letterSpacing: '.04em',
-          fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>2025</div>
+          fontFamily: 'var(--font-en-serif)' }}>2025</div>
         <h2 style={{ margin: '8px 0 10px', fontSize: 28, lineHeight: 1.35, fontWeight: 500,
-          fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }}>ポーラーサーカス登攀記</h2>
+          fontFamily: 'var(--font-jp)' }}>ポーラーサーカス登攀記</h2>
         <div style={{ fontSize: 14, color: 'rgba(255,255,255,.78)', letterSpacing: '.04em',
-          fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>Polar Circus, Greenland</div>
+          fontFamily: 'var(--font-en-serif)' }}>Polar Circus, Greenland</div>
         <div style={{ marginTop: 28, display: 'flex', flexDirection: 'column', gap: 8 }}>
-          <div style={{ fontSize: 14, fontWeight: 500, fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>K. Sasaki</div>
+          <div style={{ fontSize: 14, fontWeight: 500, fontFamily: 'var(--font-en-serif)' }}>K. Sasaki</div>
           <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.7)' }}>2025年4月　グリーンランド・ポーラーサーカス</div>
         </div>
         <div style={{ marginTop: 10, display: 'inline-block', fontSize: 10.5, padding: '4px 10px', border: '1px solid rgba(255,255,255,.25)', color: 'rgba(255,255,255,.88)' }}>海外・極地</div>
         <p style={{ marginTop: 30, fontSize: 12.5, lineHeight: 1.95, color: 'rgba(255,255,255,.85)', maxWidth: 360 }}>
           長年の夢だったポーラーサーカス。厳冬期のグリーンランドで、<br/>氷と風と静寂の中、私たちは何を見たのか。<br/>アプローチから登攀、ビバーク、そして下山までの記録。
         </p>
-        <Link href="/chronicle/polar-circus" style={{
+        <Link href="/reports/polar-circus" style={{
           marginTop: 30, display: 'inline-flex', alignItems: 'center', gap: 10,
           padding: '10px 18px', border: '1px solid rgba(255,255,255,.25)', color: '#fff',
           fontSize: 12, cursor: 'pointer', textDecoration: 'none',

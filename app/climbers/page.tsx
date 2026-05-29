@@ -10,7 +10,7 @@ export default async function ClimbersPage() {
   const { contents: members } = await getClimbers()
 
   return (
-    <PageShell sidebarProps={{ variant: 'minimal', pageLabel: 'CLIMBERS', pageNum: '04' }}>
+    <PageShell>
       <ClimbersHero/>
       <ClimbersGrid members={members}/>
       <ClimbersBottom/>

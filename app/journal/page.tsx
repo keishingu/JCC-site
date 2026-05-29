@@ -11,7 +11,7 @@ export default async function JournalPage() {
   const latestIssue = issues[0] ?? null
 
   return (
-    <PageShell sidebarProps={{ variant: 'full', activeNav: 'JOURNAL', decoration: 'social' }}>
+    <PageShell>
       <JournalHero/>
       <JournalLatest latestIssue={latestIssue}/>
       <JournalGrid issues={issues}/>

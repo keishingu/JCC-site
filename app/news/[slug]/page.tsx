@@ -20,16 +20,16 @@ function formatDate(iso?: string) {
   return new Date(iso).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })
 }
 
-const enSt: React.CSSProperties = { fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }
-const jpSt: React.CSSProperties = { fontFamily: '"Shippori Mincho B1","Noto Serif JP",serif' }
+const enSt: React.CSSProperties = { fontFamily: 'var(--font-en-serif)' }
+const jpSt: React.CSSProperties = { fontFamily: 'var(--font-jp)' }
 
 export default async function NewsItemPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const item = await getNewsItem(slug)
+  const item = await getNewsItem(decodeURIComponent(slug))
   if (!item) notFound()
 
   return (
-    <PageShell sidebarProps={{ variant: 'full', activeNav: 'NEWS', decoration: 'mountain' }}>
+    <PageShell>
       {/* Hero */}
       {item.heroImage && (
         <div style={{ position: 'relative', height: 400, overflow: 'hidden', background: '#111' }}>
@@ -39,19 +39,19 @@ export default async function NewsItemPage({ params }: { params: Promise<{ slug:
         </div>
       )}
 
-      <article style={{ background: '#f7f5ee', padding: '56px 56px 80px' }}>
+      <article style={{ background: 'var(--color-cream)', padding: '56px 56px 80px' }}>
         {/* Header */}
         <div style={{ maxWidth: 720, marginBottom: 48 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
-            <span style={{ fontSize: 10.5, letterSpacing: '.14em', border: '1px solid rgba(10,22,40,0.15)', padding: '4px 10px', color: '#16263f', ...enSt }}>
+            <span style={{ fontSize: 10.5, letterSpacing: '.14em', border: '1px solid rgba(10,22,40,0.15)', padding: '4px 10px', color: 'var(--color-navy)', ...enSt }}>
               {tagLabels[item.tag] ?? item.tag}
             </span>
-            <span style={{ fontSize: 12, color: '#3d5070', ...enSt }}>{formatDate(item.publishedAt)}</span>
-            {item.author && <span style={{ fontSize: 12, color: '#3d5070', ...enSt }}>by {item.author}</span>}
+            <span style={{ fontSize: 12, color: 'var(--color-slate)', ...enSt }}>{formatDate(item.publishedAt)}</span>
+            {item.author && <span style={{ fontSize: 12, color: 'var(--color-slate)', ...enSt }}>by {item.author}</span>}
           </div>
-          <h1 style={{ margin: 0, fontSize: 30, lineHeight: 1.4, fontWeight: 500, color: '#0a1628', ...jpSt }}>{item.title}</h1>
+          <h1 style={{ margin: 0, fontSize: 30, lineHeight: 1.4, fontWeight: 500, color: 'var(--color-ink)', ...jpSt }}>{item.title}</h1>
           {item.excerpt && (
-            <p style={{ marginTop: 16, fontSize: 14, lineHeight: 1.9, color: '#3d5070', ...jpSt }}>{item.excerpt}</p>
+            <p style={{ marginTop: 16, fontSize: 14, lineHeight: 1.9, color: 'var(--color-slate)', ...jpSt }}>{item.excerpt}</p>
           )}
         </div>
 

@@ -22,7 +22,7 @@ export default function Footer({ noTopRule }: { noTopRule?: boolean }) {
   return (
     <footer style={{
       position: 'relative',
-      background: '#16263f',
+      background: 'var(--color-navy)',
       color: '#fff',
       padding: '34px 50px 46px 50px',
       display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between',
@@ -30,15 +30,15 @@ export default function Footer({ noTopRule }: { noTopRule?: boolean }) {
     }}>
       <div style={{ display: 'flex', gap: 28, alignItems: 'flex-start' }}>
         <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <div style={{ fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif', fontWeight: 700, fontSize: 22, letterSpacing: '.04em', lineHeight: 1, color: '#fff' }}>JCC</div>
-          <div style={{ fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif', fontSize: 8, lineHeight: 1.4, marginTop: 6, letterSpacing: '.14em', color: 'rgba(255,255,255,.72)' }}>
+          <div style={{ fontFamily: 'var(--font-en-sans)', fontWeight: 600, fontSize: 22, letterSpacing: '.04em', lineHeight: 1 }}>JCC</div>
+          <div style={{ fontFamily: 'var(--font-en-sans)', fontSize: 8, lineHeight: 1.4, marginTop: 6, letterSpacing: '.14em', color: 'rgba(255,255,255,.72)' }}>
             JAPAN<br/>CLIMBERS<br/>CLUB
           </div>
         </Link>
         <div style={{ fontSize: 11, lineHeight: 1.85, color: 'rgba(255,255,255,.78)', marginLeft: 18, paddingTop: 2 }}>
           <div style={{ marginBottom: 2 }}>日本クライマースクラブ</div>
           <div>〒162-0824 東京都新宿区揚場町2-24 新陽堂ビル2F</div>
-          <div style={{ fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif' }}>contact@japan-climbers-club.com</div>
+          <div style={{ fontFamily: 'var(--font-en-serif)' }}>contact@japan-climbers-club.com</div>
         </div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 26, fontSize: 11, color: 'rgba(255,255,255,.78)' }}>
@@ -53,7 +53,7 @@ export default function Footer({ noTopRule }: { noTopRule?: boolean }) {
       </div>
       <div style={{
         position: 'absolute', right: 50, bottom: 12,
-        fontFamily: '"Cormorant Garamond","Shippori Mincho B1",serif',
+        fontFamily: 'var(--font-en-sans)',
         fontSize: 10, color: 'rgba(255,255,255,.5)', letterSpacing: '.06em',
       }}>
         © Japan Climbers Club. All Rights Reserved.
